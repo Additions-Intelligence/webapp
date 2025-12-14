@@ -1,3 +1,4 @@
+import InfoItem from "@/components/info-item";
 import { Container, Flex, SimpleGrid, Text } from "@chakra-ui/react";
 
 interface SummaryContentProps {
@@ -33,18 +34,6 @@ const SummaryContent: React.FC<SummaryContentProps> = ({ summaryData }) => {
         <InfoItem label="Country" value={summaryData.country} />
       </SimpleGrid>
     </Container>
-  );
-};
-
-const InfoItem: React.FC<{
-  label: string;
-  value: string | number | null | undefined;
-}> = ({ label, value }) => {
-  return (
-    <Flex gap={2}>
-      <Text fontWeight="medium">{label}:</Text>
-      <Text>{value || "NI"}</Text>
-    </Flex>
   );
 };
 

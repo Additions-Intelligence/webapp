@@ -2,6 +2,7 @@
 
 import { Tabs } from "@chakra-ui/react";
 import SummaryContent from "./summary_content";
+import FirmographicsContent from "./firmographics_content";
 
 interface InfoTabsProps {
   company: ICompany;
@@ -40,7 +41,9 @@ const InfoTabs: React.FC<InfoTabsProps> = ({ company }) => {
           }}
         />
       </Tabs.Content>
-      <Tabs.Content value="firmographics">Firmographics content</Tabs.Content>
+      <Tabs.Content value="firmographics">
+        <FirmographicsContent companyData={company} />
+      </Tabs.Content>
       <Tabs.Content value="key_people">Key people content</Tabs.Content>
       <Tabs.Content value="ownership">Ownership content</Tabs.Content>
       <Tabs.Content value="financials">Financials content</Tabs.Content>
