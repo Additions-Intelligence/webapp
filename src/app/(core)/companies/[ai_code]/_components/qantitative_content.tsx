@@ -1,5 +1,6 @@
 import { formatCurrency } from "@/lib/utils";
-import { For, Heading, Table } from "@chakra-ui/react";
+import { Container, For, Heading, Table } from "@chakra-ui/react";
+import { QUANTITATIVE_DISCLOSURES } from "@/lib/dummy_data";
 
 interface QuantitativeContentProps {
   aiCode: string;
@@ -8,7 +9,18 @@ interface QuantitativeContentProps {
 const Quantitative_Content: React.FC<QuantitativeContentProps> = ({
   aiCode,
 }) => {
-  return <div>Quantitative_Content for {aiCode}</div>;
+  const qualitativeData = QUANTITATIVE_DISCLOSURES.find(
+    (statement) => statement.identifier.ai_code === aiCode
+  );
+  return (
+    <Container>
+      <QuantitativeTable
+        quantitativeDisclosures={
+          qualitativeData?.quantitative_disclosures || []
+        }
+      />
+    </Container>
+  );
 };
 
 export default Quantitative_Content;
@@ -99,7 +111,7 @@ function QuantitativeTable({
                   <For each={sortedYears}>
                     {(year) => (
                       <Table.Cell key={year}>
-                        {formatCurrency(statementsByYear[year]?.[item] || "NI")}
+                        {statementsByYear[year]?.[item] || "NI"}
                       </Table.Cell>
                     )}
                   </For>

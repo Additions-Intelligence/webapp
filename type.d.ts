@@ -147,6 +147,20 @@ interface IQuantitativeDisclosure {
   updated_at: string | null;
 }
 
+interface ISubsidiary {
+  entity_name: string;
+  subsidiary_type: string;
+  ownership_type: string;
+  country: string;
+}
+
+interface ISubsidiaryResponse {
+  identifier: ICompanyIdentifier;
+  subsidiaries: ISubsidiary[];
+  created_at: string | null;
+  updated_at: string | null;
+}
+
 interface IFinancialStatement {
   identifier: ICompanyIdentifier;
   accounting_standard: string;

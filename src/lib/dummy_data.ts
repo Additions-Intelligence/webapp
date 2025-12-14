@@ -1276,3 +1276,71 @@ export const OWNERSHIP_DATA: IOwnership[] = [
     updated_at: "2024-01-10T14:45:00Z",
   },
 ];
+
+export const QUANTITATIVE_DISCLOSURES: IQuantitativeDisclosure[] = [
+  {
+    identifier: {
+      ai_code: "GH1111117959",
+      isin: "GHEADB043726",
+      registration_number: "NI",
+    },
+    quantitative_disclosures: [
+      {
+        year: 2021,
+        financial_item_name: "50 largest exposures to total exposure",
+        financial_item_value: "NI",
+        sub_category: "Exposure",
+      },
+      {
+        year: 2021,
+        financial_item_name: "Capital adequacy ratio",
+        financial_item_value: "14.49",
+        sub_category: "Capital Adequacy",
+      },
+      {
+        year: 2021,
+        financial_item_name: "Cost to income Ratio",
+        financial_item_value: "65.32",
+        sub_category: "Efficiency",
+      },
+      {
+        year: 2022,
+        financial_item_name: "50 largest exposures to total exposure",
+        financial_item_value: "NI",
+        sub_category: "Exposure",
+      },
+      {
+        year: 2022,
+        financial_item_name: "Capital adequacy ratio",
+        financial_item_value: "15.12",
+        sub_category: "Capital Adequacy",
+      },
+      {
+        year: 2022,
+        financial_item_name: "Cost to income Ratio",
+        financial_item_value: "62.45",
+        sub_category: "Efficiency",
+      },
+      {
+        year: 2023,
+        financial_item_name: "50 largest exposures to total exposure",
+        financial_item_value: "45.67",
+        sub_category: "Exposure",
+      },
+      {
+        year: 2023,
+        financial_item_name: "Capital adequacy ratio",
+        financial_item_value: "16.78",
+        sub_category: "Capital Adequacy",
+      },
+      {
+        year: 2023,
+        financial_item_name: "Cost to income Ratio",
+        financial_item_value: "58.91",
+        sub_category: "Efficiency",
+      },
+    ],
+    created_at: "2023-12-14T12:00:00Z",
+    updated_at: "2023-12-14T12:00:00Z",
+  },
+];
