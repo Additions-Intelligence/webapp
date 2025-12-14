@@ -8,6 +8,7 @@ import OwnershipContent from "./ownership_content";
 import FinancialContent from "./financial_content";
 import FinancialRatioContent from "./financial_ratio_content";
 import QuantitativeContent from "./qantitative_content";
+import SubsidiariesContent from "./subsidiaries_content";
 
 interface InfoTabsProps {
   company: ICompany;
@@ -64,10 +65,10 @@ const InfoTabs: React.FC<InfoTabsProps> = ({ company }) => {
       <Tabs.Content value="quantitative_disclosure">
         <QuantitativeContent aiCode={company.identifier.ai_code ?? ""} />
       </Tabs.Content>
-      <Tabs.Content value="subsidiaries">Subsidiaries content</Tabs.Content>
-      <Tabs.Content value="sustainable_development">
-        Sustainable development content
+      <Tabs.Content value="subsidiaries">
+        <SubsidiariesContent aiCode={company.identifier.ai_code ?? ""} />
       </Tabs.Content>
+      <Tabs.Content value="sustainable_development">NI</Tabs.Content>
     </Tabs.Root>
   );
 };

@@ -1277,6 +1277,102 @@ export const OWNERSHIP_DATA: IOwnership[] = [
   },
 ];
 
+export const SUBSIDIARY_DATA: ISubsidiaryResponse[] = [
+  {
+    identifier: {
+      ai_code: "GH1111117959",
+      isin: "GHEADB043726",
+      registration_number: "NI",
+    },
+    subsidiaries: [
+      {
+        entity_name: "Agridev Real Estates Limited",
+        subsidiary_type: "C",
+        ownership_type: "10",
+        country: "Nigeria",
+      },
+      {
+        entity_name: "Ghana International Bank Limited",
+        subsidiary_type: "B",
+        ownership_type: "9",
+        country: "United Kingdom",
+      },
+      {
+        entity_name: "Metro Mass Transportation Ltd",
+        subsidiary_type: "C",
+        ownership_type: "16",
+        country: "Ghana",
+      },
+      {
+        entity_name: "ADB Financial Services Limited",
+        subsidiary_type: "A",
+        ownership_type: "100",
+        country: "Ghana",
+      },
+      {
+        entity_name: "ADB Insurance Brokers Limited",
+        subsidiary_type: "B",
+        ownership_type: "100",
+        country: "Ghana",
+      },
+    ],
+    created_at: "2023-01-15T10:30:00Z",
+    updated_at: "2023-06-20T14:45:00Z",
+  },
+  {
+    identifier: {
+      ai_code: "GH1111118049",
+      isin: "GH0000000094",
+      registration_number: "C3903",
+    },
+    subsidiaries: [
+      {
+        entity_name: "Ecobank Nigeria Limited",
+        subsidiary_type: "A",
+        ownership_type: "100",
+        country: "Nigeria",
+      },
+      {
+        entity_name: "Ecobank Ghana Limited",
+        subsidiary_type: "A",
+        ownership_type: "100",
+        country: "Ghana",
+      },
+      {
+        entity_name: "Ecobank Côte d'Ivoire",
+        subsidiary_type: "A",
+        ownership_type: "100",
+        country: "Côte d'Ivoire",
+      },
+    ],
+    created_at: "2023-02-10T09:15:00Z",
+    updated_at: "2023-07-05T11:20:00Z",
+  },
+  {
+    identifier: {
+      ai_code: "GH1111118152",
+      isin: "GH0000000250",
+      registration_number: "C3904",
+    },
+    subsidiaries: [
+      {
+        entity_name: "Fidelity Securities Limited",
+        subsidiary_type: "B",
+        ownership_type: "100",
+        country: "Ghana",
+      },
+      {
+        entity_name: "Fidelity Asia Bank Limited",
+        subsidiary_type: "A",
+        ownership_type: "100",
+        country: "China",
+      },
+    ],
+    created_at: "2023-03-20T13:45:00Z",
+    updated_at: "2023-08-10T16:30:00Z",
+  },
+];
+
 export const QUANTITATIVE_DISCLOSURES: IQuantitativeDisclosure[] = [
   {
     identifier: {
