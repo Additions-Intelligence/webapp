@@ -4,6 +4,7 @@ import { Tabs } from "@chakra-ui/react";
 import SummaryContent from "./summary_content";
 import FirmographicsContent from "./firmographics_content";
 import KeyPeopleContent from "./key_people_content";
+import OwnershipContent from "./ownership_content";
 
 interface InfoTabsProps {
   company: ICompany;
@@ -48,7 +49,9 @@ const InfoTabs: React.FC<InfoTabsProps> = ({ company }) => {
       <Tabs.Content value="key_people">
         <KeyPeopleContent keyPersonData={company.key_people} />
       </Tabs.Content>
-      <Tabs.Content value="ownership">Ownership content</Tabs.Content>
+      <Tabs.Content value="ownership">
+        <OwnershipContent aiCode={company.identifier.ai_code ?? ""} />
+      </Tabs.Content>
       <Tabs.Content value="financials">Financials content</Tabs.Content>
       <Tabs.Content value="financial_ratios">
         Financial Ratios content
