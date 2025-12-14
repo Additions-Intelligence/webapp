@@ -828,6 +828,143 @@ export const COMPANY_DATA: ICompany[] = [
   },
 ];
 
+export const FINANCIAL_STATEMENTS: IFinancialStatement[] = [
+  {
+    identifier: {
+      ai_code: "GH1111117959",
+      isin: "GHEADB043726",
+      registration_number: "NI",
+    },
+    accounting_standard:
+      "IFRS, Banks and Specialised Deposit-Taking Institutions Act, 2016 (Act 930)",
+    currency: {
+      currency_name: "Ghana Cedi",
+      currency_code: "GHS",
+      symbol: "GH¢",
+    },
+    income_statements: [
+      {
+        year: 2021,
+        currency_code: "GHS",
+        financial_item_name: "Interest Income",
+        financial_item_value: "728235",
+        eps_currency: "Ghana Pesewas per share",
+      },
+      {
+        year: 2022,
+        currency_code: "GHS",
+        financial_item_name: "Interest Income",
+        financial_item_value: "892367",
+        eps_currency: "Ghana Pesewas per share",
+      },
+      {
+        year: 2023,
+        currency_code: "GHS",
+        financial_item_name: "Interest Income",
+        financial_item_value: "1043564",
+        eps_currency: "Ghana Pesewas per share",
+      },
+      {
+        year: 2021,
+        currency_code: "GHS",
+        financial_item_name: "Net Interest Income",
+        financial_item_value: "480326",
+        eps_currency: "Ghana Pesewas per share",
+      },
+      {
+        year: 2022,
+        currency_code: "GHS",
+        financial_item_name: "Net Interest Income",
+        financial_item_value: "422318",
+        eps_currency: "Ghana Pesewas per share",
+      },
+      {
+        year: 2023,
+        currency_code: "GHS",
+        financial_item_name: "Net Interest Income",
+        financial_item_value: "373920",
+        eps_currency: "Ghana Pesewas per share",
+      },
+    ],
+    balance_sheets: [
+      {
+        year: 2021,
+        currency_code: "GHS",
+        financial_item_name: "Total Assets",
+        financial_item_value: "12000000",
+        sub_category: "Assets",
+      },
+      {
+        year: 2022,
+        currency_code: "GHS",
+        financial_item_name: "Total Assets",
+        financial_item_value: "13500000",
+        sub_category: "Assets",
+      },
+      {
+        year: 2023,
+        currency_code: "GHS",
+        financial_item_name: "Total Assets",
+        financial_item_value: "15000000",
+        sub_category: "Assets",
+      },
+      {
+        year: 2021,
+        currency_code: "GHS",
+        financial_item_name: "Total Liabilities",
+        financial_item_value: "10000000",
+        sub_category: "Liabilities",
+      },
+      {
+        year: 2022,
+        currency_code: "GHS",
+        financial_item_name: "Total Liabilities",
+        financial_item_value: "11000000",
+        sub_category: "Liabilities",
+      },
+      {
+        year: 2023,
+        currency_code: "GHS",
+        financial_item_name: "Total Liabilities",
+        financial_item_value: "12000000",
+        sub_category: "Liabilities",
+      },
+    ],
+    cash_flow_statements: [
+      {
+        year: 2021,
+        currency_code: "GHS",
+        financial_item_name: "Net cash from operating activities",
+        financial_item_value: "422139",
+        sub_category: "Cash flows from operating activities",
+      },
+      {
+        year: 2022,
+        currency_code: "GHS",
+        financial_item_name: "Net cash from operating activities",
+        financial_item_value: "39907",
+        sub_category: "Cash flows from operating activities",
+      },
+      {
+        year: 2021,
+        currency_code: "GHS",
+        financial_item_name: "Net cash used in investing activities",
+        financial_item_value: "-660026",
+        sub_category: "Cash flows from investing activities",
+      },
+      {
+        year: 2022,
+        currency_code: "GHS",
+        financial_item_name: "Net cash used in investing activities",
+        financial_item_value: "-601138",
+        sub_category: "Cash flows from investing activities",
+      },
+    ],
+    created_at: "2023-12-14T15:00:00Z",
+    updated_at: "2023-12-14T15:00:00Z",
+  },
+];
+
 export const OWNERSHIP_DATA: IOwnership[] = [
   {
     identifier: {

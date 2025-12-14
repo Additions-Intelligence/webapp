@@ -27,32 +27,21 @@ const OwnershipContent: React.FC<OwnershipContentProps> = ({ aiCode }) => {
     );
   }
 
-  const ownerTypeLegend = [
-    { code: "E", description: "Mutual & Pension Fund & Trustee & Nominee" },
-    { code: "B", description: "Bank" },
-    { code: "VC", description: "Venture Capital" },
-    { code: "P", description: "Private Equity" },
-    { code: "J", description: "Foundation, Research Institute" },
-    { code: "C", description: "Corporate" },
-    { code: "F", description: "Finance Company" },
-    { code: "IC", description: "Insurance Companies" },
-    { code: "I", description: "Individual" },
-  ];
   return (
     <Container>
       <Tabs.Root defaultValue={ownershipData[0].year.toString()}>
         <Tabs.List>
           <For each={ownershipData}>
-            {(record) => (
-              <Tabs.Trigger value={record.year.toString()}>
+            {(record, index) => (
+              <Tabs.Trigger key={index} value={record.year.toString()}>
                 {record.year}
               </Tabs.Trigger>
             )}
           </For>
         </Tabs.List>
         <For each={ownershipData}>
-          {(record) => (
-            <Tabs.Content value={record.year.toString()}>
+          {(record, index) => (
+            <Tabs.Content key={index} value={record.year.toString()}>
               <Heading my="4">Beneficial Owners</Heading>
               <Table.Root variant="outline">
                 <Table.Header>

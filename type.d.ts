@@ -117,6 +117,44 @@ interface IOwnership {
   updated_at: string | null;
 }
 
+interface IFinancialItem {
+  year: number;
+  currency_code: string;
+  financial_item_name: string;
+  financial_item_value: string | null;
+  eps_currency?: string;
+  sub_category?: string;
+}
+
+interface IFinancialRatio {
+  year: number;
+  financial_item_name: string;
+  financial_item_value: string | null;
+  sub_category: string;
+}
+
+interface IFinancialRatiosResponse {
+  identifier: ICompanyIdentifier;
+  financial_ratios: IFinancialRatio[];
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+interface IFinancialStatement {
+  identifier: ICompanyIdentifier;
+  accounting_standard: string;
+  currency: {
+    currency_name: string;
+    currency_code: string;
+    symbol: string;
+  };
+  income_statements: IFinancialItem[];
+  balance_sheets: IFinancialItem[];
+  cash_flow_statements: IFinancialItem[];
+  created_at: string | null;
+  updated_at: string | null;
+}
+
 interface ApiResponse<T> {
   status: number;
   message: string;
