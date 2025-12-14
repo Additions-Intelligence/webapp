@@ -6,6 +6,7 @@ import FirmographicsContent from "./firmographics_content";
 import KeyPeopleContent from "./key_people_content";
 import OwnershipContent from "./ownership_content";
 import FinancialContent from "./financial_content";
+import FinancialRatioContent from "./financial_ratio_content";
 
 interface InfoTabsProps {
   company: ICompany;
@@ -57,7 +58,7 @@ const InfoTabs: React.FC<InfoTabsProps> = ({ company }) => {
         <FinancialContent ai_code={company.identifier.ai_code ?? ""} />
       </Tabs.Content>
       <Tabs.Content value="financial_ratios">
-        Financial Ratios content
+        <FinancialRatioContent ai_code={company.identifier.ai_code ?? ""} />
       </Tabs.Content>
       <Tabs.Content value="quantitative_disclosure">
         Quantitative Disclosure content

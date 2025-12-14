@@ -130,12 +130,19 @@ interface IFinancialRatio {
   year: number;
   financial_item_name: string;
   financial_item_value: string | null;
-  sub_category: string;
+  sub_category?: string;
 }
 
 interface IFinancialRatiosResponse {
   identifier: ICompanyIdentifier;
   financial_ratios: IFinancialRatio[];
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+interface IQuantitativeDisclosure {
+  identifier: ICompanyIdentifier;
+  quantitative_disclosures: IFinancialRatio[];
   created_at: string | null;
   updated_at: string | null;
 }

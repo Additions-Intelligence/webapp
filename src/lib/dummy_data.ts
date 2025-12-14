@@ -965,6 +965,134 @@ export const FINANCIAL_STATEMENTS: IFinancialStatement[] = [
   },
 ];
 
+export const FINANCIAL_RATIOS: IFinancialRatiosResponse[] = [
+  {
+    identifier: {
+      ai_code: "GH1111117959",
+      isin: "GHEADB043726",
+      registration_number: "NI",
+    },
+    financial_ratios: [
+      {
+        year: 2021,
+        financial_item_name: "EQUITY MULTIPLIER",
+        financial_item_value: "6.88",
+        sub_category: "LEVERAGE RATIO",
+      },
+      {
+        year: 2021,
+        financial_item_name: "LOAN TO DEPOSIT RATIO",
+        financial_item_value: "0.4632",
+        sub_category: "LIQUIDITY RATIOS",
+      },
+      {
+        year: 2021,
+        financial_item_name: "PAYOUT RATIO",
+        financial_item_value: "NI",
+        sub_category: "INVESTMENT RATIO",
+      },
+      {
+        year: 2021,
+        financial_item_name: "PRIMARY LIQUID ASSETS/TOTAL ASSETS",
+        financial_item_value: "0.1433",
+        sub_category: "LIQUIDITY RATIOS",
+      },
+      {
+        year: 2021,
+        financial_item_name: "Return on Equity",
+        financial_item_value: "0.09",
+        sub_category: "PROFITABILITY RATIOS",
+      },
+      {
+        year: 2022,
+        financial_item_name: "EQUITY MULTIPLIER",
+        financial_item_value: "11.26",
+        sub_category: "LEVERAGE RATIO",
+      },
+      {
+        year: 2022,
+        financial_item_name: "LOAN TO DEPOSIT RATIO",
+        financial_item_value: "0.5528",
+        sub_category: "LIQUIDITY RATIOS",
+      },
+      {
+        year: 2022,
+        financial_item_name: "Net Interest Margin",
+        financial_item_value: "0.085",
+        sub_category: "PROFITABILITY RATIOS",
+      },
+      {
+        year: 2022,
+        financial_item_name: "Return on Asset (ROA)",
+        financial_item_value: "-0.0535",
+        sub_category: "PROFITABILITY RATIOS",
+      },
+      {
+        year: 2022,
+        financial_item_name: "Return on Equity",
+        financial_item_value: "-0.56",
+        sub_category: "PROFITABILITY RATIOS",
+      },
+      {
+        year: 2023,
+        financial_item_name: "EQUITY MULTIPLIER",
+        financial_item_value: "91.04",
+        sub_category: "LEVERAGE RATIO",
+      },
+      {
+        year: 2023,
+        financial_item_name: "LOAN TO DEPOSIT RATIO",
+        financial_item_value: "0.3438",
+        sub_category: "LIQUIDITY RATIOS",
+      },
+      {
+        year: 2023,
+        financial_item_name: "Net Interest Margin",
+        financial_item_value: "0.0733",
+        sub_category: "PROFITABILITY RATIOS",
+      },
+      {
+        year: 2023,
+        financial_item_name: "Return on Asset (ROA)",
+        financial_item_value: "-0.1027",
+        sub_category: "PROFITABILITY RATIOS",
+      },
+      {
+        year: 2023,
+        financial_item_name: "Return on Equity",
+        financial_item_value: "-8.1",
+        sub_category: "PROFITABILITY RATIOS",
+      },
+      {
+        year: 2024,
+        financial_item_name: "EQUITY MULTIPLIER",
+        financial_item_value: "NI",
+        sub_category: "LEVERAGE RATIO",
+      },
+      {
+        year: 2024,
+        financial_item_name: "Efficiency Ratio",
+        financial_item_value: "NI",
+        sub_category: "EFFICIENCY RATIO",
+      },
+      {
+        year: 2024,
+        financial_item_name: "LOAN TO DEPOSIT RATIO",
+        financial_item_value: "NI",
+        sub_category: "LIQUIDITY RATIOS",
+      },
+      {
+        year: 2024,
+        financial_item_name: "PRIMARY LIQUID ASSETS/TOTAL ASSETS",
+        financial_item_value: "NI",
+        sub_category: "LIQUIDITY RATIOS",
+      },
+    ],
+    created_at: null,
+    updated_at: null,
+  },
+];
+
 export const OWNERSHIP_DATA: IOwnership[] = [
   {
     identifier: {
