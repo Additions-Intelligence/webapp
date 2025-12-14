@@ -97,6 +97,26 @@ interface ICompany {
   updated_at: string | null; // ISO date string
 }
 
+interface IBeneficialOwner {
+  name: string;
+  amount: number;
+  percentage: number;
+  country: string;
+  owner_type: "E" | "C" | "IC" | "I" | "F" | "NI";
+  year: number | null;
+}
+
+interface IOwnership {
+  identifier: ICompanyIdentifier;
+  name: string;
+  year: number;
+  total_shares: number;
+  total_percentage: number;
+  beneficial_owners: IBeneficialOwner[];
+  created_at: string | null;
+  updated_at: string | null;
+}
+
 interface ApiResponse<T> {
   status: number;
   message: string;
