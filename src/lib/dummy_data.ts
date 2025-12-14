@@ -1,0 +1,829 @@
+export const COMPANY_DATA: ICompany[] = [
+  {
+    identifier: {
+      ai_code: "GH1111117959",
+      isin: "GHEADB043726",
+      registration_number: "NI",
+    },
+    company_information: {
+      date_of_incorporation: "1965",
+      incorporation_note: "NI",
+      name: "Agricultural Development Bank",
+      holding_company: null,
+      description:
+        "ADB is a universal bank offering a full range of banking products and services in retail, commercial, corporate, and investment banking. Its business focus is universal banking with a development focus. Set up in 1965 by Act 286, ADB is wholly publicly owned.",
+      corporate_action: "NI",
+      status: "Active",
+      accounting_standard:
+        "IFRS, Banks and Specialised Deposit-Taking Institutions Act, 2016 (Act 930)",
+    },
+    market_information: {
+      listed: true,
+      listings: [
+        {
+          country: "Ghana",
+          date_listed: "2016-12-12T00:00:00",
+          symbol: "ADB",
+          stock_exchange: "Ghana Stock Exchange",
+        },
+      ],
+    },
+    location: {
+      continent: "Africa",
+      sub_continent: "West Africa",
+      country_of_incorporation: "Ghana",
+      region: "Greater Accra",
+      head_office_location:
+        "Accra Financial Centre, 3rd Ambassadorial Development Area, Ridge-Accra",
+      gps_coordinates: "5.639246,-0.155222",
+      postal_address: "P.O. Box 4191, Accra-Ghana",
+      digital_address: "NI",
+    },
+    contact: {
+      telephone_no: "00233-302-770403, 00233-302-762104, 00233-302-783123",
+      fax: "NI",
+      website: "http://www.agricbank.com",
+      email_address: "customercare@agricbank.com",
+    },
+    sector: {
+      sector: "Financial Services",
+      subsector_activities: "Universal Banking",
+      nace_sector: "FINANCIAL AND INSURANCE ACTIVITIES",
+      operational_classification: "Local player",
+      state_owned: "JVC",
+      keywords_products_activities:
+        "Personal Banking, Corporate Banking, Business Banking, Digital Banking, Loans, savings,",
+    },
+    number_of_employees: [
+      { year: 2020, number_of_employees: "1460" },
+      { year: 2021, number_of_employees: "1481" },
+      { year: 2022, number_of_employees: "1482" },
+      { year: 2023, number_of_employees: "1456" },
+      { year: 2024, number_of_employees: "NI" },
+    ],
+    key_people: [
+      {
+        name: "Mr. Alhassan Yakubu-Tali",
+        title: "Managing Director",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "B.S. (Business Administration), City University, Bellevue, USA (Frankfurt Campus), MBA (Marketing) from the City University, Bellevue, USA (Frankfurt Campus)",
+        year: 2023,
+      },
+      {
+        name: "Daasebre Akuamoah Agyapong II",
+        title: "Chairman",
+        profession: "Auditor and Traditional Leader",
+        age: "39",
+        nationality: "Ghanaian",
+        education_qualification:
+          "MBA-Finance and Investment Banking from Lincoln University – California, USA.",
+        year: 2023,
+      },
+      {
+        name: "Mr. George Kwabena Abankwah-Yeboah",
+        title: "Non-Executive Director",
+        profession: "Pharmacist.",
+        age: "62",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Master in Business Administration (Finance) degree from the University of Ghana, Bachelor of Pharmacy (Hons) degree from the Kwame Nkrumah University of Science and Technology",
+        year: 2023,
+      },
+      {
+        name: "Dr. John Kofi Mensah",
+        title: "Managing Director",
+        profession: "Economist",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BA (Economics and Statistics) from the University of Ghana-Legon, MSc (Banking and Finance), cumlaude from Finafrica in Milan",
+        year: 2023,
+      },
+      {
+        name: "Mrs. Mary Abla Kessie",
+        title: "Non-Executive Director",
+        profession: "lawyer",
+        age: "67",
+        nationality: "Ghanaian",
+        education_qualification: "Bachelor of Laws Degree, University of Ghana",
+        year: 2023,
+      },
+      {
+        name: "Prof. Peter Quartey",
+        title: "Non-Executive Director",
+        profession: "Lecturer",
+        age: "54",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Ph.D. in Development Economics, University of Manchester; MSc. in Quantitative Development Economics, University of Warwick (UK).",
+        year: 2023,
+      },
+      {
+        name: "Hon. Mrs. Abena Osei-Asare",
+        title: "Non-Executive Director",
+        profession: "Chartered Accountant",
+        age: "43",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor's degree in Economics with Geography from the University of Ghana, Master of Science in Development Finance from The University of Ghana Business School",
+        year: 2023,
+      },
+      {
+        name: "Mr. Evron Rothschild Hughes",
+        title: "Non-Executive Director",
+        profession: "Banking Executive",
+        age: "52",
+        nationality: "Ghanaian",
+        education_qualification:
+          "MPhil in Development Studies from Cambridge University",
+        year: 2023,
+      },
+      {
+        name: "Habib Iddrisu",
+        title: "Non-Executive Director",
+        profession: "Management Professional",
+        age: "37",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor's degree in communication studies from African University College of Communications (AUCC)",
+        year: 2023,
+      },
+      {
+        name: "Prof. Eric Yirenkyi Danquah",
+        title: "Non-Executive Director",
+        profession: "Lecturer",
+        age: "64",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BSc. Agric (Crop Science), University of Ghana; MPhil Plant Breeding, Ph.D in Genetics, University of Cambridge, England,",
+        year: 2023,
+      },
+      {
+        name: "Mr. Kenneth Kwamina Thompson",
+        title: "Chairman",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Accounting degree from the University of Ghana Business School",
+        year: 2024,
+      },
+      {
+        name: "EDWARD ATO SARPONG",
+        title: "Managing Director",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Global Executive Masters in Business Administration from the prestigious China Europe International Business School (CEIBS), Institute of Chartered Accountants, Ghana (ICAG)",
+        year: 2024,
+      },
+      {
+        name: "Ferdinand Ahiakpor",
+        title: "Deputy Managing Director, Services",
+        profession: "Economist",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Arts degree (Economics) from the University of Cape Coast, Master of Philosophy (Economics) from the University of Ghana",
+        year: 2024,
+      },
+      {
+        name: "Sylvia Naa Kwakai",
+        title: "Deputy Managing Director, Operations",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "B.Sc. in Agricultural Economics from the University of Ghana",
+        year: 2024,
+      },
+      {
+        name: "Samuel Dako",
+        title: "Chief Audit Executive",
+        profession: "Lawyer and Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "MBA Finance from the University of Leicester, UK",
+        year: 2024,
+      },
+      {
+        name: "Enoch Benjamin Donkoh",
+        title: "General Manager, Business Banking",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "MBA (Finance) from Central University College.",
+        year: 2024,
+      },
+      {
+        name: "Kwame Asiedu Attrams",
+        title: "General Manager, Agribusiness",
+        profession: "Agriculturist",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Degree in Agriculture (Animal Science) and an MPhil in Animal Science (Nutrition), all from the University of Ghana",
+        year: 2024,
+      },
+      {
+        name: "Bridget Kaminta Lekanong Nuotuo",
+        title: "Treasurer",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Commerce degree from the University of Cape Coast",
+        year: 2024,
+      },
+      {
+        name: "GODWYLL ANSAH",
+        title: "Company Secretary",
+        profession: "Lawyer",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Arts Degree (Law and Economics), University of Ghana, Master of Law (LLM), University of Ghana",
+        year: 2024,
+      },
+      {
+        name: "Amelia Boadiwaa Ama Croffie",
+        title: "General Counsel",
+        profession: "Lawyer",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Arts Degree (Hons, Upper Division) in Law, Classical History & Civilization from the University of Ghana",
+        year: 2024,
+      },
+      {
+        name: "Hon. Andrew Dari Chiwitey",
+        title: "Non-Executive Director",
+        profession: "Management Professional",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Masters in Human Resource Development and a B.A, Master of Arts from the University of Cape Coast",
+        year: 2024,
+      },
+      {
+        name: "Mr. Siisi Essuman-Ocran",
+        title: "Non-Executive Director",
+        profession: "NI",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification: "NI",
+        year: 2024,
+      },
+      {
+        name: "Hon. Dr. E. Prince Arhin",
+        title: "Non-Executive Director",
+        profession: "Management Professional",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification: "Master of Art at Bethel University",
+        year: 2024,
+      },
+      {
+        name: "Hon. Misbahu Mahama Adams",
+        title: "Non-Executive Director",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor's degree from the Ghana Institute of Management and Public Administration (GIMPA)",
+        year: 2024,
+      },
+      {
+        name: "Wing Commander Samuel J.A. Allotey",
+        title: "Non-Executive Director",
+        profession: "NI",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification: "NI",
+        year: 2024,
+      },
+      {
+        name: "Mr. Courage Akanwunge Asabagna,",
+        title: "Non-Executive Director",
+        profession: "Lecturer",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BA (Political Science with Sociology) – University of Ghana, Legon, Ghana",
+        year: 2024,
+      },
+      {
+        name: "Mr. Abdul Nasir M. Saani",
+        title: "Non-Executive Director",
+        profession: "NI",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification: "NI",
+        year: 2024,
+      },
+    ],
+    competitors: [
+      { name: "Consolidated Bank Ghana Limited" },
+      { name: "Ghana Commercial Bank Limited" },
+      { name: "National Investment Bank Limited" },
+    ],
+    number_of_branches: [
+      { year: 2020, number_of_branches: "NI" },
+      { year: 2021, number_of_branches: "86" },
+      { year: 2022, number_of_branches: "87" },
+      { year: 2023, number_of_branches: "NI" },
+      { year: 2024, number_of_branches: "NI" },
+    ],
+    auditors: [
+      {
+        year: 2022,
+        name: "Ernst & Young Chartered Accountants 60 Rangoon Lane Cantonments City P. O. Box KA 16009, Airport Accra, Ghana",
+      },
+      {
+        year: 2023,
+        name: "Ernst & Young Chartered Accountants 60 Rangoon Lane Cantonments City P. O. Box KA 16009, Airport Accra, Ghana",
+      },
+      {
+        year: 2024,
+        name: "Ernst & Young Chartered Accountants 60 Rangoon Lane Cantonments City P. O. Box KA 16009, Airport Accra, Ghana",
+      },
+    ],
+    solicitors: [
+      { year: 2022, name: "GODWYLL ANSAH" },
+      { year: 2023, name: "GODWYLL ANSAH" },
+      { year: 2024, name: "GODWYLL ANSAH" },
+    ],
+    created_at: null,
+    updated_at: null,
+  },
+  {
+    identifier: {
+      ai_code: "GH1111118049",
+      isin: "GH0000000094",
+      registration_number: "NI",
+    },
+    company_information: {
+      date_of_incorporation: "1953",
+      incorporation_note: "NI",
+      name: "Ghana Commercial Bank Limited",
+      holding_company: null,
+      description: "GCB Bank PLC is Ghana’s first and largest indigenous bank.",
+      corporate_action: "NI",
+      status: "Active",
+      accounting_standard:
+        "IFRS, Banks and Specialised Deposit-Taking Institutions Act, 2016 (Act 930)",
+    },
+    market_information: {
+      listed: true,
+      listings: [
+        {
+          country: "Ghana",
+          date_listed: null,
+          symbol: "GCB",
+          stock_exchange: "Ghana Stock Exchange",
+        },
+      ],
+    },
+    location: {
+      continent: "Africa",
+      sub_continent: "West Africa",
+      country_of_incorporation: "Ghana",
+      region: "Greater Accra",
+      head_office_location: "Head Office, High Street, Accra",
+      gps_coordinates: "5.5435357536,-0.2054904705",
+      postal_address: "P.O. Box 134, Accra",
+      digital_address: "NI",
+    },
+    contact: {
+      telephone_no: "00233-302-672852, 00233-302-664918, 00233-302-663964",
+      fax: "NI",
+      website: "http://www.gcbbank.com.gh",
+      email_address: "corporateaffairs@gcb.com.gh",
+    },
+    sector: {
+      sector: "Financial Services",
+      subsector_activities: "Universal Banking",
+      nace_sector: "FINANCIAL AND INSURANCE ACTIVITIES",
+      operational_classification: "Local player",
+      state_owned: "JVC",
+      keywords_products_activities:
+        "Personal Banking, Corporate Banking, Business Banking, Digital Banking, Loans, Savings",
+    },
+    number_of_employees: [
+      { year: 2020, number_of_employees: "2255" },
+      { year: 2024, number_of_employees: "2305" },
+    ],
+    created_at: null,
+    updated_at: null,
+    key_people: [],
+    competitors: [],
+    number_of_branches: [],
+    auditors: [],
+    solicitors: [],
+  },
+  {
+    identifier: {
+      ai_code: "GH1111118117",
+      isin: null,
+      registration_number: "NI",
+    },
+    company_information: {
+      date_of_incorporation: "1999",
+      incorporation_note: "NI",
+      name: "Stanbic Bank Ghana Limited",
+      holding_company: "Standard Bank Group",
+      description:
+        "Stanbic Bank Ghana Limited is a financial services provider licensed by the Bank of Ghana and the Securities and Exchange Commission of Ghana. The bank provides personal banking, SME, business banking, etc",
+      corporate_action: "NI",
+      status: "Active",
+      accounting_standard:
+        "IFRS, Banks and Specialised Deposit-Taking Institutions Act, 2016 (Act 930)",
+    },
+    market_information: {
+      listed: false,
+      listings: [],
+    },
+    location: {
+      continent: "Africa",
+      sub_continent: "West Africa",
+      country_of_incorporation: "Ghana",
+      region: "Greater Accra",
+      head_office_location:
+        "Head Office, Stanbic Heights, 25 Liberation Link, Airport City",
+      gps_coordinates: "5.560171003256862, -0.198656322340044",
+      postal_address: "P.O. Box CT 2344, Cantonments, Accra-Ghana",
+      digital_address: "NI",
+    },
+    contact: {
+      telephone_no: "00233-302-687670-8, 00233-302-687671, 00233-302-687672",
+      fax: "NI",
+      website: "http://www.stanbicbank.com.gh",
+      email_address: "customercare@stanbic.com.gh",
+    },
+    sector: {
+      sector: "Financial Services",
+      subsector_activities: "Universal Banking",
+      nace_sector: "FINANCIAL AND INSURANCE ACTIVITIES",
+      operational_classification: "Regional Player",
+      state_owned: "No",
+      keywords_products_activities:
+        "Personal Banking, Corporate Banking, Business Banking, Digital Banking, Loans, savings, Treasury service and investments, International trade and payments",
+    },
+    number_of_employees: [
+      { year: 2020, number_of_employees: "831" },
+      { year: 2021, number_of_employees: "867" },
+      { year: 2022, number_of_employees: "861" },
+      { year: 2023, number_of_employees: "861" },
+      { year: 2024, number_of_employees: "901" },
+    ],
+    key_people: [
+      {
+        name: "Esi Tawia Addo-Ashong",
+        title: "Chairperson",
+        profession: "Lawyer",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Arts (B.A) (Hons.) degree in Law and Political Science from the University of Ghana",
+        year: 2024,
+      },
+      {
+        name: "Kwamina Asomaning",
+        title: "Chief Executive/ Executive Director",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Science Degree in Business Administration and received a master's degree in business administration (MBA) in Finance from the Wharton School, University of Pennsylvania. He qualified as a Chartered Certified Accountant in 1998 and completed the Advanced Management Program (AMP) at Harvard Business School in 2019.",
+        year: 2024,
+      },
+      {
+        name: "Mrs. Doreen \nKweiba Iliasu",
+        title: "Board Secretary",
+        profession: "Lawyer",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "L.L.B (University of Ghana), Barrister at Law (Ghana School of Law), MBA, University of Leicester",
+        year: 2024,
+      },
+      {
+        name: "Mrs. Felicity \nSampong",
+        title: "Head, Risk & Corporate \nAffairs",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "MBA (The Stuttgart Institute of Management & Technology, Germany) BA Economics & Statistics (Hons) (University of Ghana)",
+        year: 2024,
+      },
+      {
+        name: "Mr. Hakeem Abayomi Abdul",
+        title: "Chief Information Officer",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "MBA (Finance) Manchester Business School FCA (Nigeria) ACCA (Part 1 & Part 2) HND (Accountancy) (Kwara State Polytechnic)",
+        year: 2024,
+      },
+      {
+        name: "Mr. Victor Yeboah-Manu",
+        title: "Chief Financial & Value Management officer",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "MBA (Oxford Brookes University)\nACCA (England & Wales)\nCA (ICAG, Ghana)                                               BSc (Hons) Elec. Eng. (KNUST, Ghana)",
+        year: 2024,
+      },
+      {
+        name: "Mr. Mawuko Afadzinu",
+        title: "Head, Brand & Marketing",
+        profession: "Marketing Professional",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification: "BA English & History (University of Ghana)",
+        year: 2024,
+      },
+      {
+        name: "Mr. Benjamin Mensah",
+        title: "Head, Personal & Private Banking",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BA Economics (University of Ghana), EMBA (University of Ghana)",
+        year: 2024,
+      },
+      {
+        name: "Mrs. Akosua Asaa Yelbert",
+        title: "Head, Compliance & KYC",
+        profession: "Lawyer",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "L.L. B (London Southbank University), Barrister at Law (Ghana)",
+        year: 2024,
+      },
+      {
+        name: "Mr. Samuel Agyei Antwi",
+        title: "Head, Internal Audit",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BSc Administration (Accounting Option)(University of Ghana), MSc Business Consulting and Risk Management (KNUST, Ghana)",
+        year: 2024,
+      },
+      {
+        name: "Mr. Darwin Mireku",
+        title: "Head, Strategy Enablement",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BA (Accounting & Psychology)(University of Ghana), MBA (Finance)(GIMPA)",
+        year: 2024,
+      },
+      {
+        name: "Ms. Abiana Nelson",
+        title: "Head, Internal Control",
+        profession: "Auditor",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BA Sociology with English (University of Ghana), Member, ICAG (Ghana)",
+        year: 2024,
+      },
+      {
+        name: "Mr. Samuel Kwadjo Teye",
+        title: "Head, People & Culture",
+        profession: "Human Resources Practitioner",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "BA Computer Science & Psychology (University of Ghana)",
+        year: 2024,
+      },
+    ],
+    competitors: [
+      { name: "Republic Bank (Ghana) PLC" },
+      { name: "Universal Merchant Bank Limited" },
+      { name: "United Bank for Africa (Ghana) Limited" },
+    ],
+    number_of_branches: [
+      { year: 2020, number_of_branches: "40" },
+      { year: 2021, number_of_branches: "40" },
+      { year: 2022, number_of_branches: "41" },
+      { year: 2023, number_of_branches: "41" },
+      { year: 2024, number_of_branches: "41" },
+    ],
+    auditors: [
+      {
+        year: 2022,
+        name: "PricewaterhouseCoopers PwC Tower A4 Rangoon Lane Cantonments City PMB CT 42, Cantonments Accra -Ghana",
+      },
+      {
+        year: 2023,
+        name: "PricewaterhouseCoopers PwC Tower A4 Rangoon Lane Cantonments City PMB CT 42, Cantonments Accra -Ghana",
+      },
+      {
+        year: 2024,
+        name: "Ernst & Young Chartered Accountants 60 Rangoon Lane Cantonments City P. O. Box KA 16009, Airport Accra, Ghana",
+      },
+    ],
+    solicitors: [
+      { year: 2022, name: "Mrs. Doreen K. Iliasu" },
+      { year: 2023, name: "Mrs. Doreen K. Iliasu" },
+      { year: 2024, name: "Mrs. Doreen K. Iliasu" },
+    ],
+    created_at: null,
+    updated_at: null,
+  },
+  {
+    identifier: {
+      ai_code: "GH1111118152",
+      isin: null,
+      registration_number: "NI",
+    },
+    company_information: {
+      date_of_incorporation: "2005",
+      incorporation_note: "NI",
+      name: "Zenith Bank (Ghana) Limited",
+      holding_company: "Zenith Bank Plc",
+      description:
+        "Zenith Bank (Ghana) Ltd, a subsidiary of Zenith Bank Plc was incorporated in April 2005 under the Companies Code, 1963 (Act 179) as a private limited liability company and licensed by the Bank of Ghana in September 2005 under the Banking Act, 2004 (Act 673) as amended by the Banking (Amendment) Act, 2007 (Act 738) to provide financial services under a Universal Banking Licence. \n",
+      corporate_action: "NI",
+      status: "Active",
+      accounting_standard:
+        "IFRS, Banks and Specialised Deposit-Taking Institutions Act, 2016 (Act 930)",
+    },
+    market_information: {
+      listed: false,
+      listings: [],
+    },
+    location: {
+      continent: "Africa",
+      sub_continent: "West Africa",
+      country_of_incorporation: "Ghana",
+      region: "Greater Accra",
+      head_office_location:
+        "Head Office, Zenith Heights, No. 31 Independence Avenue, ",
+      gps_coordinates: "5.566659583945189, -0.19410458471877476",
+      postal_address: "PMB CT 393, Cantonments, Accra",
+      digital_address: "NI",
+    },
+    contact: {
+      telephone_no: "00233-302-660075, 00233-302-611500, 00233-302-660079",
+      fax: "NI",
+      website: "https://www.zenithbank.com",
+      email_address: "info@zenithbank.com.gh",
+    },
+    sector: {
+      sector: "Financial Services",
+      subsector_activities: "Universal Banking",
+      nace_sector: "FINANCIAL AND INSURANCE ACTIVITIES",
+      operational_classification: "Regional Player",
+      state_owned: "No",
+      keywords_products_activities:
+        "Personal Banking, Corporate Banking, Business Banking, Digital Banking, Loans, savings, Treasury service and investments, International trade and payments",
+    },
+    number_of_employees: [{ year: 2024, number_of_employees: "640" }],
+    key_people: [
+      {
+        name: "Henry Chinedu Onwuzurigbo",
+        title: "Chief Executive Officer",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Nigerian",
+        education_qualification: "Bachelor's degree in Accounting",
+        year: 2024,
+      },
+      {
+        name: "Mrs. Freda Yahan Duplan",
+        title: "Board Chair",
+        profession: "Computer Scientist",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification: "NI",
+        year: 2024,
+      },
+      {
+        name: "Clifford Mensah",
+        title: "Executive Director",
+        profession: "Chartered Enterprise Risk Actuary",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Master's degree with distinction in Actuarial Science from Heriot-Watt University, UK, Bachelor of Science Degree in Mathematics and Statistics from the University of Ghana.",
+        year: 2024,
+      },
+      {
+        name: "Daniel Agamah",
+        title: "General Counsel & Company Secretary",
+        profession: "Lawyer",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Law and Philosophy from the University of Ghana, Legon (1991), a Qualifying Certificate of Law from the Ghana School of Law (1993), and a Master's degree in International Law from the University of Cape Town, South Africa (2000).",
+        year: 2024,
+      },
+      {
+        name: "Charlotte Yawa Impraim",
+        title: "Head of Credit Risk Management and Recoveries Department",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Master's in Business Administration (Finance Option) from the University of Ghana as well as a Bachelor of Arts degree in Political Science and Sociology from the same institution",
+        year: 2024,
+      },
+      {
+        name: "Maebelle Nortey",
+        title: "General Manager, Marketing",
+        profession: "Marketing Professional",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Degree in Administration (Management) and a Master's in Business Administration (Marketing) both from the University of Ghana, Legon",
+        year: 2024,
+      },
+      {
+        name: "Abdul - Jalil Alidu",
+        title: "Chief Financial Officer",
+        profession: "Chartered Accountant",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Science Degree in Business Administration from the University of Ghana, Master of Science Degree in Finance from the University of Leicester in the United Kingdom",
+        year: 2024,
+      },
+      {
+        name: "Samuel Quansah",
+        title: "Chief Risk Officer",
+        profession: "Banking Executive",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Arts Degree in Business Administration (Accounting and Psychology Major) from the University of Ghana",
+        year: 2024,
+      },
+      {
+        name: "Fabian Agala",
+        title: "Head, Information Technology (Chief Information Officer)",
+        profession: "Information Technology Professional",
+        age: "NI",
+        nationality: "Ghanaian",
+        education_qualification:
+          "Bachelor of Arts Degree in Business Administration (Accounting and Psychology Major) from the University of Ghana",
+        year: 2024,
+      },
+    ],
+    competitors: [
+      { name: "Absa Bank Ghana Limited" },
+      { name: "Access Bank (Ghana) Plc" },
+      { name: "CalBank PLC" },
+    ],
+    number_of_branches: [
+      { year: 2023, number_of_branches: "40" },
+      { year: 2024, number_of_branches: "43" },
+    ],
+    auditors: [
+      {
+        year: 2022,
+        name: "PricewaterhouseCoopers PwC Tower A4 Rangoon Lane Cantonments City PMB CT 42, Cantonments Accra -Ghana",
+      },
+      {
+        year: 2023,
+        name: "PricewaterhouseCoopers PwC Tower A4 Rangoon Lane Cantonments City PMB CT 42, Cantonments Accra -Ghana",
+      },
+      {
+        year: 2024,
+        name: "PricewaterhouseCoopers PwC Tower A4 Rangoon Lane Cantonments City PMB CT 42, Cantonments Accra -Ghana",
+      },
+    ],
+    solicitors: [
+      {
+        year: 2022,
+        name: "Corporate Legal Concepts, Rehoboth Place No.1 North Labone Estates, Accra",
+      },
+      {
+        year: 2023,
+        name: "Corporate Legal Concepts, Rehoboth Place No.1 North Labone Estates, Accra",
+      },
+      {
+        year: 2024,
+        name: "Corporate Legal Concepts, Rehoboth Place No.1 North Labone Estates, Accra",
+      },
+    ],
+    created_at: null,
+    updated_at: null,
+  },
+];

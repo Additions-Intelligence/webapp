@@ -2,6 +2,7 @@ import { Provider } from "@/components/ui/provider";
 import type { Metadata } from "next";
 import { Funnel_Sans } from "next/font/google";
 import "./globals.css";
+import QueryProvider from "@/components/query-provider";
 
 const funnelSans = Funnel_Sans({
   variable: "--font-funnel-sans",
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${funnelSans.variable}`}>
-        <Provider>{children}</Provider>
+        <QueryProvider>
+          <Provider>{children}</Provider>
+        </QueryProvider>
       </body>
     </html>
   );
