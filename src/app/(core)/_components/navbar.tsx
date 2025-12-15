@@ -4,7 +4,11 @@ import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import SearchBar from "../_components/search-bar";
 
-const Navbar = () => {
+interface NavbarProps {
+  product?: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ product }) => {
   return (
     <Container maxW="7xl" py={4}>
       <Flex justifyContent="space-between">
@@ -20,7 +24,7 @@ const Navbar = () => {
             </Text>
           </Link>
           <Box flex={1} maxW="600px">
-            <SearchBar type="companies" />
+            <SearchBar type={product ?? "companies"} />
           </Box>
         </Flex>
 

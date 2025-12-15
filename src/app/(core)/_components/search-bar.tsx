@@ -8,12 +8,13 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { LoaderCircle, Search } from "lucide-react";
-import { useCompanies } from "@/hooks/useCompanies";
+import { useCompanies } from "@/hooks/use-companies";
 import { useMemo, useState } from "react";
 import { useDebounce } from "use-debounce";
 import { COMPANY_DATA, CRIME_DATA } from "@/lib/dummy_data";
 import CompanySearchCard from "./company_search_card";
 import CrimeSearchCard from "./crime_search_card";
+import { useSearchCrime } from "@/hooks/use-crime";
 
 type SearchType = "companies" | "crime";
 
@@ -67,22 +68,24 @@ const searchConfigs = {
 const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
   const isCompanySearch = type === "companies";
 
-  // get data from React Query hook
-  // const { data: companiesData, isLoading } = useCompanies(isCompanySearch);
-  const config = searchConfigs[type as keyof typeof searchConfigs];
-
   const [searchTerm, setSearchTerm] = useState("");
-  const [debouncedSearchTerm] = useDebounce(searchTerm, 300);
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 1000);
 
-  const filteredResults = useMemo(() => {
-    if (!debouncedSearchTerm.trim()) return config.data;
-    return config.data.filter((item) =>
-      config.filterFn(item, debouncedSearchTerm)
-    );
-  }, [config, debouncedSearchTerm]);
+  const isActive = debouncedSearchTerm.trim().length > 0;
+
+  const crimeQuery = useSearchCrime(
+    debouncedSearchTerm,
+    type === "crime" && isActive
+  );
+
+  const activeQuery = {
+    crime: crimeQuery,
+  }[type];
+
+  const { data = [], isLoading, isFetching, error } = activeQuery ?? {};
 
   return (
-    <Dialog.Root placement="center" size="lg">
+    <Dialog.Root placement="center" size="lg" scrollBehavior="inside">
       <Dialog.Trigger asChild>
         <Button
           size="lg"
@@ -120,7 +123,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
             </Dialog.Header>
 
             <Dialog.Body>
-              {false ? (
+              {isLoading || isFetching ? (
                 <Text
                   textAlign="center"
                   display="flex"
@@ -135,14 +138,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                   />
                   Preparing information...
                 </Text>
-              ) : filteredResults.length === 0 ? (
+              ) : data.length === 0 ? (
                 <Text textAlign="center" color="fg.muted">
                   No results found.
                 </Text>
               ) : (
                 <VStack spaceY={2}>
                   {type === "companies" &&
-                    filteredResults.map((company: any) => (
+                    data.map((company: any) => (
                       <CompanySearchCard
                         key={company.identifier.ai_code}
                         company={company}
@@ -150,7 +153,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                     ))}
 
                   {type === "crime" &&
-                    filteredResults.map((person: any) => (
+                    data.map((person: any) => (
                       <CrimeSearchCard key={person.id} entity={person} />
                     ))}
                 </VStack>

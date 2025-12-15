@@ -2,6 +2,7 @@ import { COMPANY_DATA } from "@/lib/dummy_data";
 import { Box, Container, Heading, Separator } from "@chakra-ui/react";
 import InfoTabs from "./_components/info_tabs";
 import Navbar from "../../_components/navbar";
+import { getCompanies } from "@/data/company";
 
 export default async function CompanyPage({
   params,
@@ -12,6 +13,11 @@ export default async function CompanyPage({
   const companyData = COMPANY_DATA.find(
     (company) => company.identifier.ai_code === aiCode
   );
+
+  const companies = await getCompanies();
+
+  console.log("Companies:", companies);
+
   return (
     <>
       <Navbar />

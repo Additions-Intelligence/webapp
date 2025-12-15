@@ -1,4 +1,3 @@
-import { CRIME_DATA } from "@/lib/dummy_data";
 import Navbar from "../../_components/navbar";
 import {
   Container,
@@ -11,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import InfoItem from "@/components/info-item";
 import { formatReadableDate } from "@/lib/utils";
+import { getCrimeById } from "@/data/crime";
 
 export default async function CrimeDetailPage({
   params,
@@ -18,12 +18,10 @@ export default async function CrimeDetailPage({
   params: { id: string };
 }) {
   const id = (await params).id;
-  const crimeData = CRIME_DATA.find(
-    (crime) => crime.identifier.entity_id === parseInt(id)
-  );
+  const crimeData = (await getCrimeById(parseInt(id)))[0];
   return (
     <>
-      <Navbar />
+      <Navbar product="crime" />
       <Container maxW="7xl" py={8}>
         {crimeData ? (
           <>
@@ -34,7 +32,7 @@ export default async function CrimeDetailPage({
               <Flex gap={16}>
                 <Image
                   src={
-                    crimeData.entity_information.photo ||
+                    crimeData.entity_information.photo ??
                     "https://placehold.co/100"
                   }
                   alt="Crime profile"

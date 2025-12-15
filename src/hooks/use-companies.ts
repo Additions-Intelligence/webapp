@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCompaniesService } from "@/services/company.service";
+import { getCompanies } from "@/data/company";
 
 export const useCompanies = (enabled = true) =>
   useQuery({
     queryKey: ["companies"],
-    queryFn: getCompaniesService,
+    queryFn: getCompanies,
     enabled,
     staleTime: 1000 * 60 * 5,
   });
