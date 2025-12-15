@@ -236,3 +236,47 @@ interface ICrimeRecord {
   created_at: string | null;
   updated_at: string | null;
 }
+
+// PEP (Politically Exposed Person) related types
+interface IPEPIdentifier {
+  person_id: number;
+  person_name: string;
+}
+
+interface IPEPPersonalityDetails {
+  date_of_birth: string | null;
+  age: string | null;
+  country: string | null;
+  place_of_birth: string | null;
+  region_of_birth: string | null;
+  profession: string | null;
+  severity: "High" | "Medium" | "Low";
+}
+
+interface IPoliticalAffiliation {
+  public_office: string | null;
+  organisation: string | null;
+  political_party_affiliation: string | null;
+  political_party_under_appointment: string | null;
+  start_date: string | null;
+  end_date: string | null;
+}
+
+interface IAssociatedCompany {
+  company_name: string;
+  position: string | null;
+  country: string | null;
+  start_date: string | null;
+  end_date: string | null;
+}
+
+interface IPEPRecord {
+  identifier: IPEPIdentifier;
+  personality_details: IPEPPersonalityDetails;
+  political_affiliations: IPoliticalAffiliation[];
+  relatives: any[]; // Could be further typed if structure is known
+  associated_companies: IAssociatedCompany[];
+  controversies: any[]; // Could be further typed if structure is known
+  created_at: string | null;
+  updated_at: string | null;
+}

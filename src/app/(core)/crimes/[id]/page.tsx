@@ -7,6 +7,7 @@ import {
   Image,
   SimpleGrid,
   For,
+  Text,
 } from "@chakra-ui/react";
 import InfoItem from "@/components/info-item";
 import { formatReadableDate } from "@/lib/utils";
@@ -101,10 +102,23 @@ export default async function CrimeDetailPage({
                 />
               </Box>
 
-              <For each={crimeData.crimes}>
+              <For
+                each={crimeData.crimes}
+                fallback={
+                  <Text fontSize="lg" fontWeight="semibold">
+                    NI
+                  </Text>
+                }
+              >
                 {(crime, index) => (
                   <Box mb={12}>
-                    <Box key={index} spaceY={4}>
+                    <Box
+                      key={index}
+                      spaceY={4}
+                      p={4}
+                      borderWidth="1px"
+                      borderRadius="md"
+                    >
                       <InfoItem
                         label="Alert"
                         value={crime.crime_information.alert}
@@ -131,7 +145,14 @@ export default async function CrimeDetailPage({
                     </Heading>
                     <For each={crime.entity_crime_status}>
                       {(status, statusIndex) => (
-                        <Box key={statusIndex} spaceY={4} mb={8}>
+                        <Box
+                          key={statusIndex}
+                          spaceY={4}
+                          mb={8}
+                          p={4}
+                          borderWidth="1px"
+                          borderRadius="md"
+                        >
                           <InfoItem label="Status" value={status.status} />
                           <InfoItem label="Comment" value={status.comment} />
                           <InfoItem

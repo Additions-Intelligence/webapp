@@ -15,6 +15,8 @@ import { COMPANY_DATA, CRIME_DATA } from "@/lib/dummy_data";
 import CompanySearchCard from "./company_search_card";
 import CrimeSearchCard from "./crime_search_card";
 import { useSearchCrime } from "@/hooks/use-crime";
+import { useSearchPep } from "@/hooks/use-pep";
+import PEPSearchCard from "./pep_search_card";
 
 type SearchType = "companies" | "crime";
 
@@ -78,8 +80,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     type === "crime" && isActive
   );
 
+  const pepQuery = useSearchPep(
+    debouncedSearchTerm,
+    type === "pep" && isActive
+  );
+
   const activeQuery = {
     crime: crimeQuery,
+    pep: pepQuery,
   }[type];
 
   const { data = [], isLoading, isFetching, error } = activeQuery ?? {};
@@ -153,8 +161,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                     ))}
 
                   {type === "crime" &&
-                    data.map((person: any) => (
-                      <CrimeSearchCard key={person.id} entity={person} />
+                    data.map((person: any, index: number) => (
+                      <CrimeSearchCard key={index} entity={person} />
+                    ))}
+
+                  {type === "pep" &&
+                    data.map((person: any, index: number) => (
+                      <PEPSearchCard key={index} entity={person} />
                     ))}
                 </VStack>
               )}
