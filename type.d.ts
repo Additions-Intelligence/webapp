@@ -182,3 +182,57 @@ interface ApiResponse<T> {
   data: T | null;
   error: string | null;
 }
+
+// Crime-related types
+interface IEntityIdentifier {
+  entity_id: number;
+  entity_name: string;
+  aliases: string | null;
+  id_type: string;
+  id_number: string;
+}
+
+interface IEntityInformation {
+  entity_type: string;
+  photo: string | null;
+  notice: string | null;
+  nationality: string | null;
+  age: string | null;
+  current_age: string | null;
+  sex: string | null;
+  height: string | null;
+  complexion: string | null;
+  title: string;
+  associated_institution: string;
+}
+
+interface ICrimeInformation {
+  sub_crime_type: string;
+  crime_type: string;
+  alert: string;
+  description: string;
+  money_involved: string;
+  date_of_incidence: string | null;
+  sanctioned_authority: string;
+  country: string;
+}
+
+interface IEntityCrimeStatus {
+  case_status: string;
+  status: string;
+  date: string | null;
+  comment: string | null;
+}
+
+interface ICrime {
+  crime_information: ICrimeInformation;
+  entity_crime_status: IEntityCrimeStatus[];
+}
+
+interface ICrimeRecord {
+  identifier: IEntityIdentifier;
+  entity_information: IEntityInformation;
+  crimes: ICrime[];
+  created_at: string | null;
+  updated_at: string | null;
+}

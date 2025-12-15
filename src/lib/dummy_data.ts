@@ -1440,3 +1440,310 @@ export const QUANTITATIVE_DISCLOSURES: IQuantitativeDisclosure[] = [
     updated_at: "2023-12-14T12:00:00Z",
   },
 ];
+
+export const CRIME_DATA: ICrimeRecord[] = [
+  {
+    identifier: {
+      entity_id: 485,
+      entity_name: "ABAIDOO FELIX KOJO",
+      aliases: null,
+      id_type: "Student ID",
+      id_number: "7060103",
+    },
+    entity_information: {
+      entity_type: "Person",
+      photo: null,
+      notice: null,
+      nationality: "Ghanaian",
+      age: "28",
+      current_age: "30",
+      sex: "Male",
+      height: "175cm",
+      complexion: "Dark",
+      title: "Student",
+      associated_institution: "TAKORADI TECHNICAL UNIVERSITY",
+    },
+    crimes: [
+      {
+        crime_information: {
+          sub_crime_type: "Loan Default",
+          crime_type: "Financial Crime",
+          alert: "Demand Notice",
+          description:
+            "Defaulted on monthly installments for student loans provided by the Ghana Student Loan Trust Fund.",
+          money_involved: "8,844.81 Ghana Cedis",
+          date_of_incidence: "2022-06-15",
+          sanctioned_authority: "Student Loan Trust Fund",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Open",
+            status: "Request of Payment",
+            date: "2023-01-10",
+            comment: "Initial demand notice sent",
+          },
+          {
+            case_status: "Open",
+            status: "Payment Reminder",
+            date: "2023-03-15",
+            comment: "Second notice issued",
+          },
+        ],
+      },
+    ],
+    created_at: "2023-01-10T09:30:00Z",
+    updated_at: "2023-03-15T14:20:00Z",
+  },
+  {
+    identifier: {
+      entity_id: 1497,
+      entity_name: "ABOAGYE FOSTER KOJO",
+      aliases: "Kojo Foster, Foster Aboagye",
+      id_type: "Student ID",
+      id_number: "ED/MAT/14/0101",
+    },
+    entity_information: {
+      entity_type: "Person",
+      photo: null,
+      notice: "Wanted for questioning",
+      nationality: "Ghanaian",
+      age: "26",
+      current_age: "28",
+      sex: "Male",
+      height: "180cm",
+      complexion: "Light",
+      title: "Former Student",
+      associated_institution: "UNIVERSITY OF CAPE COAST",
+    },
+    crimes: [
+      {
+        crime_information: {
+          sub_crime_type: "Loan Default",
+          crime_type: "Financial Crime",
+          alert: "Legal Action Pending",
+          description:
+            "Consistently failed to make payments on student loan. Multiple attempts to contact have been unsuccessful.",
+          money_involved: "11,021.26 Ghana Cedis",
+          date_of_incidence: "2021-12-01",
+          sanctioned_authority: "Student Loan Trust Fund",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Open",
+            status: "Legal Notice Sent",
+            date: "2023-02-20",
+            comment: "Final notice before legal action",
+          },
+        ],
+      },
+      {
+        crime_information: {
+          sub_crime_type: "Fraud",
+          crime_type: "Financial Crime",
+          alert: "Under Investigation",
+          description:
+            "Suspected of providing false information on loan application",
+          money_involved: "5,000.00 Ghana Cedis",
+          date_of_incidence: "2020-09-15",
+          sanctioned_authority: "Economic and Organized Crime Office",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Under Investigation",
+            status: "Case Opened",
+            date: "2023-01-05",
+            comment: "Initial investigation ongoing",
+          },
+        ],
+      },
+    ],
+    created_at: "2023-01-05T11:15:00Z",
+    updated_at: "2023-02-20T10:45:00Z",
+  },
+  {
+    identifier: {
+      entity_id: 1705,
+      entity_name: "ABREFA GODSWILL KOJO",
+      aliases: null,
+      id_type: "Student ID",
+      id_number: "01173029D",
+    },
+    entity_information: {
+      entity_type: "Person",
+      photo: null,
+      notice: null,
+      nationality: "Ghanaian",
+      age: "24",
+      current_age: "25",
+      sex: "Male",
+      height: "172cm",
+      complexion: "Dark",
+      title: "Student",
+      associated_institution: "ACCRA TECHNICAL UNIVERSITY",
+    },
+    crimes: [
+      {
+        crime_information: {
+          sub_crime_type: "Loan Default",
+          crime_type: "Financial Crime",
+          alert: "Payment Plan Active",
+          description:
+            "Student has entered into a payment plan for loan repayment",
+          money_involved: "1,699.05 Ghana Cedis",
+          date_of_incidence: "2022-09-10",
+          sanctioned_authority: "Student Loan Trust Fund",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Active",
+            status: "Payment Plan Active",
+            date: "2023-02-15",
+            comment: "Monthly payments of 200 GHS initiated",
+          },
+        ],
+      },
+    ],
+    created_at: "2023-01-20T13:45:00Z",
+    updated_at: "2023-04-10T16:30:00Z",
+  },
+  {
+    identifier: {
+      entity_id: 2372,
+      entity_name: "ACHIRI JULIUS KOJO-WISEN",
+      aliases: "Julius Achiri, Kojo Wisen",
+      id_type: "Student ID",
+      id_number: "SB/BMS/10/0076",
+    },
+    entity_information: {
+      entity_type: "Person",
+      photo: null,
+      notice: "Contact authorities if seen",
+      nationality: "Ghanaian",
+      age: "29",
+      current_age: "31",
+      sex: "Male",
+      height: "178cm",
+      complexion: "Dark",
+      title: "Former Student",
+      associated_institution: "UNIVERSITY OF CAPE COAST",
+    },
+    crimes: [
+      {
+        crime_information: {
+          sub_crime_type: "Loan Default",
+          crime_type: "Financial Crime",
+          alert: "Warrant Issued",
+          description:
+            "Multiple defaults on student loan payments. Subject has failed to respond to multiple notices.",
+          money_involved: "9,745.32 Ghana Cedis",
+          date_of_incidence: "2021-03-22",
+          sanctioned_authority: "Student Loan Trust Fund",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Active",
+            status: "Arrest Warrant Issued",
+            date: "2023-03-01",
+            comment: "Subject to be arrested on sight",
+          },
+        ],
+      },
+      {
+        crime_information: {
+          sub_crime_type: "Forgery",
+          crime_type: "Document Fraud",
+          alert: "Wanted",
+          description:
+            "Suspected of forging academic documents to secure additional funding",
+          money_involved: "15,000.00 Ghana Cedis",
+          date_of_incidence: "2020-11-15",
+          sanctioned_authority: "Ghana Police Service",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Open",
+            status: "Warrant Issued",
+            date: "2022-12-10",
+            comment: "Subject wanted for questioning",
+          },
+        ],
+      },
+    ],
+    created_at: "2022-12-10T10:20:00Z",
+    updated_at: "2023-03-01T15:10:00Z",
+  },
+  {
+    identifier: {
+      entity_id: 3158,
+      entity_name: "ADJEI EBENEZER KOJO",
+      aliases: null,
+      id_type: "National ID",
+      id_number: "GHA-19875643-1",
+    },
+    entity_information: {
+      entity_type: "Person",
+      photo: null,
+      notice: "Approach with caution",
+      nationality: "Ghanaian",
+      age: "35",
+      current_age: "36",
+      sex: "Male",
+      height: "182cm",
+      complexion: "Dark",
+      title: "Business Owner",
+      associated_institution: "N/A",
+    },
+    crimes: [
+      {
+        crime_information: {
+          sub_crime_type: "Tax Evasion",
+          crime_type: "Financial Crime",
+          alert: "Court Case Pending",
+          description:
+            "Deliberate underreporting of business income to avoid tax obligations",
+          money_involved: "250,000.00 Ghana Cedis",
+          date_of_incidence: "2019-01-01",
+          sanctioned_authority: "Ghana Revenue Authority",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Active",
+            status: "Court Date Set",
+            date: "2023-03-15",
+            comment: "Next hearing scheduled for April 20, 2023",
+          },
+        ],
+      },
+      {
+        crime_information: {
+          sub_crime_type: "Money Laundering",
+          crime_type: "Financial Crime",
+          alert: "Under Investigation",
+          description:
+            "Suspicious financial transactions through multiple business accounts",
+          money_involved: "1,500,000.00 Ghana Cedis",
+          date_of_incidence: "2020-06-01",
+          sanctioned_authority: "Financial Intelligence Centre",
+          country: "Ghana",
+        },
+        entity_crime_status: [
+          {
+            case_status: "Under Investigation",
+            status: "Assets Frozen",
+            date: "2023-01-20",
+            comment: "Subject's accounts under monitoring",
+          },
+        ],
+      },
+    ],
+    created_at: "2023-01-05T09:15:00Z",
+    updated_at: "2023-03-15T14:30:00Z",
+  },
+];

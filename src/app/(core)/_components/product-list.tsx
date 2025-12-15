@@ -27,9 +27,19 @@ const products = [
   },
 ];
 
-const ProductList = () => {
+interface ProductListProps {
+  onProductSelect: (product: string | null) => void;
+}
+
+const ProductList: React.FC<ProductListProps> = ({ onProductSelect }) => {
   return (
-    <RadioCard.Root defaultValue="companies">
+    <RadioCard.Root
+      defaultValue="companies"
+      onValueChange={(result) => {
+        console.log("Selected product:", result.value);
+        onProductSelect(result.value);
+      }}
+    >
       <HStack align="stretch">
         {products.map((item) => (
           <RadioCard.Item key={item.slug} value={item.slug}>

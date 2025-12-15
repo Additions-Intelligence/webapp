@@ -11,43 +11,75 @@ import { LoaderCircle, Search } from "lucide-react";
 import { useCompanies } from "@/hooks/useCompanies";
 import { useMemo, useState } from "react";
 import { useDebounce } from "use-debounce";
-import { COMPANY_DATA } from "@/lib/dummy_data";
+import { COMPANY_DATA, CRIME_DATA } from "@/lib/dummy_data";
 import CompanySearchCard from "./company_search_card";
+import CrimeSearchCard from "./crime_search_card";
+
+type SearchType = "companies" | "crime";
 
 interface SearchBarProps {
-  type: "companies" | "kyc" | "pep" | "crime" | string;
+  type: SearchType | string;
 }
+
+interface SearchConfig<T> {
+  data: T[];
+  placeholder: string;
+  filterFn: (item: T, term: string) => boolean;
+}
+
+const searchConfigs = {
+  companies: {
+    data: COMPANY_DATA,
+    placeholder: "Search companies...",
+    filterFn: (company: any, term: string): boolean => {
+      const t = term.toLowerCase();
+
+      const name = company.company_information.name.toLowerCase();
+      const aiCode = company.identifier.ai_code?.toLowerCase() ?? "";
+      const isin = company.identifier.isin?.toLowerCase() ?? "";
+
+      return name.includes(t) || aiCode.includes(t) || isin.includes(t);
+    },
+  },
+
+  // kyc: {
+  //   data: KYC_DATA,
+  //   placeholder: "Search KYC subjects...",
+  //   filterFn: (person: IKycPerson, term: string) =>
+  //     person.full_name.toLowerCase().includes(term.toLowerCase()),
+  // },
+
+  // pep: {
+  //   data: PEP_DATA,
+  //   placeholder: "Search PEPs...",
+  //   filterFn: (pep: IPep, term: string) =>
+  //     pep.name.toLowerCase().includes(term.toLowerCase()),
+  // },
+
+  crime: {
+    data: CRIME_DATA,
+    placeholder: "Search crime entity...",
+    filterFn: (crime: any, term: string) =>
+      crime.identifier.entity_name.toLowerCase().includes(term.toLowerCase()),
+  },
+} satisfies Record<SearchType, SearchConfig<any>>;
 
 const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
   const isCompanySearch = type === "companies";
 
   // get data from React Query hook
   // const { data: companiesData, isLoading } = useCompanies(isCompanySearch);
-  const companiesData = COMPANY_DATA;
+  const config = searchConfigs[type as keyof typeof searchConfigs];
 
-  // local state for search input
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm] = useDebounce(searchTerm, 300);
 
-  // filter companies
-  const filteredCompanies = useMemo(() => {
-    const companies = companiesData || []; // <- ensure actual array
-
-    console.log(companies);
-
-    if (!debouncedSearchTerm.trim()) return companies;
-
-    const term = debouncedSearchTerm.toLowerCase();
-
-    return companies.filter((company: ICompany) => {
-      const name = company.company_information.name.toLowerCase();
-      const aiCode = company.identifier.ai_code?.toLowerCase() || "";
-      const isin = company.identifier.isin?.toLowerCase() || "";
-      return (
-        name.includes(term) || aiCode.includes(term) || isin.includes(term)
-      );
-    });
-  }, [companiesData, debouncedSearchTerm]);
+  const filteredResults = useMemo(() => {
+    if (!debouncedSearchTerm.trim()) return config.data;
+    return config.data.filter((item) =>
+      config.filterFn(item, debouncedSearchTerm)
+    );
+  }, [config, debouncedSearchTerm]);
 
   return (
     <Dialog.Root placement="center" size="lg">
@@ -77,12 +109,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
               </Text>
               <Input
                 placeholder={
-                  isCompanySearch ? "Search companies..." : "Search disabled"
+                  isCompanySearch ? "Search companies..." : "Search entities..."
                 }
                 value={searchTerm}
                 autoFocus
                 // disabled={!isCompanySearch || isLoading}
-                disabled={!isCompanySearch}
+                // disabled={!isCompanySearch}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </Dialog.Header>
@@ -103,18 +135,24 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                   />
                   Preparing information...
                 </Text>
-              ) : filteredCompanies.length === 0 ? (
+              ) : filteredResults.length === 0 ? (
                 <Text textAlign="center" color="fg.muted">
                   No results found.
                 </Text>
               ) : (
                 <VStack spaceY={2}>
-                  {filteredCompanies.map((company: ICompany) => (
-                    <CompanySearchCard
-                      key={company.identifier.ai_code}
-                      company={company}
-                    />
-                  ))}
+                  {type === "companies" &&
+                    filteredResults.map((company: any) => (
+                      <CompanySearchCard
+                        key={company.identifier.ai_code}
+                        company={company}
+                      />
+                    ))}
+
+                  {type === "crime" &&
+                    filteredResults.map((person: any) => (
+                      <CrimeSearchCard key={person.id} entity={person} />
+                    ))}
                 </VStack>
               )}
             </Dialog.Body>

@@ -21,7 +21,7 @@ export default function Home() {
         Addition Intelligence Platform
       </Heading>
       <SearchBar type={product} />
-      <ProductList />
+      <ProductList onProductSelect={(selected) => setProduct(selected ?? "")} />
     </Flex>
   );
 }
