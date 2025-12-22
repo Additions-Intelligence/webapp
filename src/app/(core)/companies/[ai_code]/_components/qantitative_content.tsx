@@ -1,6 +1,6 @@
 import { formatCurrency } from "@/lib/utils";
-import { Container, For, Heading, Table } from "@chakra-ui/react";
-import { QUANTITATIVE_DISCLOSURES } from "@/lib/dummy_data";
+import { Container, For, Heading, Table, Text } from "@chakra-ui/react";
+import { useCompanyQuantitativeDisclosures } from "@/hooks/use-companies";
 
 interface QuantitativeContentProps {
   aiCode: string;
@@ -9,15 +9,28 @@ interface QuantitativeContentProps {
 const Quantitative_Content: React.FC<QuantitativeContentProps> = ({
   aiCode,
 }) => {
-  const qualitativeData = QUANTITATIVE_DISCLOSURES.find(
-    (statement) => statement.identifier.ai_code === aiCode
-  );
+  const { data: quantitativeData, isLoading } =
+    useCompanyQuantitativeDisclosures(aiCode, true);
+  if (isLoading) {
+    return (
+      <Container>
+        <Text fontSize="lg">Loading quantitative data...</Text>
+      </Container>
+    );
+  }
+  if (!quantitativeData || quantitativeData.length === 0) {
+    return (
+      <Container>
+        <Text fontSize="lg">No quantitative data available.</Text>
+      </Container>
+    );
+  }
+
+  const processedData = quantitativeData[0];
   return (
     <Container>
       <QuantitativeTable
-        quantitativeDisclosures={
-          qualitativeData?.quantitative_disclosures || []
-        }
+        quantitativeDisclosures={processedData?.quantitative_disclosures || []}
       />
     </Container>
   );

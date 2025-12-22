@@ -1,19 +1,37 @@
 import { FINANCIAL_RATIOS } from "@/lib/dummy_data";
 import { formatCurrency } from "@/lib/utils";
 import { Box, Container, For, Heading, Table, Text } from "@chakra-ui/react";
+import { useCompanyFinancialRatios } from "@/hooks/use-companies";
 
 interface FinancialRatioProps {
   ai_code: string;
 }
 
 const FinancialRatioContent: React.FC<FinancialRatioProps> = ({ ai_code }) => {
-  const financialData = FINANCIAL_RATIOS.find(
-    (statement) => statement.identifier.ai_code === ai_code
+  const { data: financialData, isLoading } = useCompanyFinancialRatios(
+    ai_code,
+    true
   );
+  if (isLoading) {
+    return (
+      <Container>
+        <Text fontSize="lg">Loading financial data...</Text>
+      </Container>
+    );
+  }
+  if (!financialData || financialData.length === 0) {
+    return (
+      <Container>
+        <Text fontSize="lg">No financial data available.</Text>
+      </Container>
+    );
+  }
+
+  const processedData = financialData[0];
   return (
     <Container>
       <FinancialRationTable
-        financialRatios={financialData?.financial_ratios || []}
+        financialRatios={processedData?.financial_ratios || []}
       />
     </Container>
   );

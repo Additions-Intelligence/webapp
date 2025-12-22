@@ -1,17 +1,35 @@
 import { FINANCIAL_STATEMENTS } from "@/lib/dummy_data";
-import { Container, Tabs } from "@chakra-ui/react";
+import { Container, Tabs, Text } from "@chakra-ui/react";
 import FinancialIncomeContent from "./financial_income_content";
 import FinancialBalanceContent from "./financial_balance_content";
 import FinancialCashFlowContent from "./financial_cash_flow_content";
+import { useCompanyFinancials } from "@/hooks/use-companies";
 
 interface FinancialContentProps {
   ai_code: string;
 }
 
 const FinancialContent: React.FC<FinancialContentProps> = ({ ai_code }) => {
-  const financialData = FINANCIAL_STATEMENTS.find(
-    (statement) => statement.identifier.ai_code === ai_code
+  const { data: financialData, isLoading } = useCompanyFinancials(
+    ai_code,
+    true
   );
+  if (isLoading) {
+    return (
+      <Container>
+        <Text fontSize="lg">Loading financial data...</Text>
+      </Container>
+    );
+  }
+  if (!financialData || financialData.length === 0) {
+    return (
+      <Container>
+        <Text fontSize="lg">No financial data available.</Text>
+      </Container>
+    );
+  }
+
+  const processedData = financialData[0]; // Assuming we take the first entry
   return (
     <Container>
       <Tabs.Root defaultValue="income_statement">
@@ -22,20 +40,20 @@ const FinancialContent: React.FC<FinancialContentProps> = ({ ai_code }) => {
         </Tabs.List>
         <Tabs.Content value="income_statement">
           <FinancialIncomeContent
-            incomeStatements={financialData?.income_statements || []}
-            currency={financialData?.currency.symbol || "GHS"}
+            incomeStatements={processedData?.income_statements || []}
+            currency={processedData?.currency.symbol || "GHS"}
           />
         </Tabs.Content>
         <Tabs.Content value="balance_sheet">
           <FinancialBalanceContent
-            balanceSheet={financialData?.balance_sheets || []}
-            currency={financialData?.currency.symbol || "GHS"}
+            balanceSheet={processedData?.balance_sheets || []}
+            currency={processedData?.currency.symbol || "GHS"}
           />
         </Tabs.Content>
         <Tabs.Content value="cash_flow">
           <FinancialCashFlowContent
-            cashFlows={financialData?.cash_flow_statements || []}
-            currency={financialData?.currency.symbol || "GHS"}
+            cashFlows={processedData?.cash_flow_statements || []}
+            currency={processedData?.currency.symbol || "GHS"}
           />
         </Tabs.Content>
       </Tabs.Root>

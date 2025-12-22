@@ -1,14 +1,6 @@
-import { OWNERSHIP_DATA } from "@/lib/dummy_data";
-import {
-  Box,
-  Container,
-  For,
-  Heading,
-  HStack,
-  Table,
-  Tabs,
-  VStack,
-} from "@chakra-ui/react";
+import { getCompanyOwnership } from "@/data/company";
+import { useCompanyOwnership } from "@/hooks/use-companies";
+import { Box, Container, For, Heading, Table, Tabs } from "@chakra-ui/react";
 import { Text } from "recharts";
 
 interface OwnershipContentProps {
@@ -16,9 +8,14 @@ interface OwnershipContentProps {
 }
 
 const OwnershipContent: React.FC<OwnershipContentProps> = ({ aiCode }) => {
-  const ownershipData = OWNERSHIP_DATA.filter(
-    (item) => item.identifier.ai_code === aiCode
-  ).sort((a, b) => b.year - a.year);
+  const { data: ownershipData, isLoading } = useCompanyOwnership(aiCode, true);
+  if (isLoading) {
+    return (
+      <Container>
+        <Text fontSize="lg">Loading ownership data...</Text>
+      </Container>
+    );
+  }
   if (!ownershipData || ownershipData.length === 0) {
     return (
       <Container>

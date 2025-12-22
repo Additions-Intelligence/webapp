@@ -1,4 +1,4 @@
-import { SUBSIDIARY_DATA } from "@/lib/dummy_data";
+import { useCompanySubsidiaries } from "@/hooks/use-companies";
 import { Box, Container, For, Table, Text } from "@chakra-ui/react";
 
 interface SubsidiariesContentProps {
@@ -8,9 +8,26 @@ interface SubsidiariesContentProps {
 const SubsidiariesContent: React.FC<SubsidiariesContentProps> = ({
   aiCode,
 }) => {
-  const subsidiaries =
-    SUBSIDIARY_DATA.find((s) => s.identifier.ai_code === aiCode)
-      ?.subsidiaries || [];
+  const { data: subsidiariesData, isLoading } = useCompanySubsidiaries(
+    aiCode,
+    true
+  );
+  if (isLoading) {
+    return (
+      <Container>
+        <Text fontSize="lg">Loading subsidiaries data...</Text>
+      </Container>
+    );
+  }
+  if (!subsidiariesData || subsidiariesData.length === 0) {
+    return (
+      <Container>
+        <Text fontSize="lg">No subsidiaries data available.</Text>
+      </Container>
+    );
+  }
+
+  const subsidiaries = subsidiariesData[0];
   return (
     <Container mt={4}>
       <Table.Root variant="outline">
@@ -23,7 +40,7 @@ const SubsidiariesContent: React.FC<SubsidiariesContentProps> = ({
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          <For each={subsidiaries}>
+          <For each={subsidiaries.subsidiaries}>
             {(subsidiary, index) => (
               <Table.Row key={index}>
                 <Table.Cell>{subsidiary.entity_name}</Table.Cell>
