@@ -25,3 +25,41 @@ export const formatCurrency = (value: string | null) => {
     maximumFractionDigits: 0,
   }).format(numValue);
 };
+
+const getNameFromRisk = {
+  business_risks: (r: any) => r.identifier?.name,
+  financial_risks: (r: any) => r.identifier?.name,
+  crime_risks: (r: any) => r.identifier?.entity_name,
+};
+
+const normalizeName = (name: string) => name?.trim().toLowerCase();
+
+export function aggregateRisks(
+  source: Record<keyof typeof getNameFromRisk, any[]>
+): AggregatedRisk[] {
+  const map = new Map<string, AggregatedRisk>();
+
+  for (const [riskType, risks] of Object.entries(source)) {
+    for (const risk of risks) {
+      const rawName =
+        getNameFromRisk[riskType as keyof typeof getNameFromRisk](risk);
+      const key = normalizeName(rawName);
+
+      if (!map.has(key)) {
+        map.set(key, {
+          name: rawName,
+          business_risks: [],
+          financial_risks: [],
+          crime_risks: [],
+          pep_screening: [],
+        });
+      }
+
+      const item = map.get(key)!;
+      const riskArray = item[riskType as keyof AggregatedRisk] as unknown[];
+      riskArray.push(risk);
+    }
+  }
+
+  return [...map.values()];
+}

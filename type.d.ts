@@ -280,3 +280,40 @@ interface IPEPRecord {
   created_at: string | null;
   updated_at: string | null;
 }
+
+interface BusinessRisk {
+  identifier: {
+    name: string;
+    title?: string;
+  };
+  company_name: string;
+  company_reg_num: string;
+  date_of_incorporation: string;
+  holding_company: string;
+  status: string;
+}
+
+interface FinancialRisk {
+  identifier: {
+    name: string;
+  };
+  company_name: string;
+  percentage: string;
+  country: string;
+}
+
+interface CrimeRisk {
+  identifier: {
+    entity_id: number;
+    entity_name: string;
+  };
+  crimes: ICrime[];
+}
+
+interface AggregatedRisk {
+  name: string;
+  business_risks: BusinessRisk[];
+  financial_risks: FinancialRisk[];
+  crime_risks: CrimeRisk[];
+  pep_screening: IPEPRecord[];
+}
