@@ -315,5 +315,5 @@ interface AggregatedRisk {
   business_risks: BusinessRisk[];
   financial_risks: FinancialRisk[];
   crime_risks: CrimeRisk[];
-  pep_screening: IPEPRecord[];
+  pep_screenings: IPEPRecord[];
 }

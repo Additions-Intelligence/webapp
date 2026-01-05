@@ -10,7 +10,7 @@ export const searchKYC = async (name: string) => {
     business_risks: response.flatMap((r) => r.business_risks ?? []),
     financial_risks: response.flatMap((r) => r.financial_risks ?? []),
     crime_risks: response.flatMap((r) => r.crime_risks ?? []),
-    pep_screening: response.flatMap((r) => r.pep_screening ?? []),
+    pep_screenings: response.flatMap((r) => r.pep_screenings ?? []),
   };
 
   const aggregated = aggregateRisks(data);

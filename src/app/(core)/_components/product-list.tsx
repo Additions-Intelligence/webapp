@@ -36,7 +36,6 @@ const ProductList: React.FC<ProductListProps> = ({ onProductSelect }) => {
     <RadioCard.Root
       defaultValue="companies"
       onValueChange={(result) => {
-        console.log("Selected product:", result.value);
         onProductSelect(result.value);
       }}
     >

@@ -26,7 +26,9 @@ export default async function KYCDetail({
               {search.toUpperCase()} Found {kycs.length} KYC
             </Text>
             <Box spaceY={4}>
-              <For each={kycs}>{(kyc) => <KYCCard kyc={kyc} />}</For>
+              <For each={kycs}>
+                {(kyc, index) => <KYCCard key={index} kyc={kyc} />}
+              </For>
             </Box>
           </Box>
         ) : (

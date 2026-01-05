@@ -30,6 +30,7 @@ const getNameFromRisk = {
   business_risks: (r: any) => r.identifier?.name,
   financial_risks: (r: any) => r.identifier?.name,
   crime_risks: (r: any) => r.identifier?.entity_name,
+  pep_screenings: (r: any) => r.identifier?.person_name,
 };
 
 const normalizeName = (name: string) => name?.trim().toLowerCase();
@@ -51,7 +52,7 @@ export function aggregateRisks(
           business_risks: [],
           financial_risks: [],
           crime_risks: [],
-          pep_screening: [],
+          pep_screenings: [],
         });
       }
 
