@@ -9,10 +9,15 @@ import {
   getCompanySubsidiaries,
 } from "@/data/company";
 
-export const useCompanies = (enabled = true) =>
+export const useCompanies = (
+  name: string,
+  page: number = 1,
+  page_size: number = 100,
+  enabled = true
+) =>
   useQuery({
-    queryKey: ["companies"],
-    queryFn: getCompanies,
+    queryKey: ["companies", name, page, page_size],
+    queryFn: () => getCompanies(name, page, page_size),
     enabled,
     staleTime: 1000 * 60 * 5,
   });

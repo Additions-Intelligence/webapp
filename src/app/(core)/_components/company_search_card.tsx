@@ -2,7 +2,7 @@ import { Container, Flex, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
 interface CompanySearchCardProps {
-  company: ICompany;
+  company: ICompanySearchResult;
 }
 
 const CompanySearchCard: React.FC<CompanySearchCardProps> = ({ company }) => {
@@ -20,7 +20,7 @@ const CompanySearchCard: React.FC<CompanySearchCardProps> = ({ company }) => {
         cursor="pointer"
         transition="background-color 0.2s ease"
       >
-        <Heading size="md">{company.company_information.name}</Heading>
+        <Heading size="md">{company.name}</Heading>
         <Flex gap={2}>
           <Flex gap={1}>
             <Text fontSize="sm" color="gray.500" fontWeight="semibold">

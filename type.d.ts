@@ -97,6 +97,11 @@ interface ICompany {
   updated_at: string | null; // ISO date string
 }
 
+interface ICompanySearchResult {
+  identifier: ICompanyIdentifier;
+  name: string;
+}
+
 interface IBeneficialOwner {
   name: string;
   amount: number;
@@ -176,11 +181,19 @@ interface IFinancialStatement {
   updated_at: string | null;
 }
 
+interface IPagination {
+  page: number;
+  limit: number;
+  total: number;
+  total_pages: number;
+}
+
 interface ApiResponse<T> {
   status: number;
   message: string;
   data: T | null;
   error: string | null;
+  pagination: IPagination | null;
 }
 
 // Crime-related types

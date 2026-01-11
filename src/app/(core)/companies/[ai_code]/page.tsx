@@ -19,8 +19,9 @@ export default async function CompanyPage({
         {companyData ? (
           <Box>
             <Heading size="3xl" mb={4}>
-              {companyData.company_information.name} (
-              {companyData.market_information.listings[0]?.symbol})
+              {companyData.company_information.name}
+              {companyData.market_information.listings[0]?.symbol &&
+                `(${companyData.market_information.listings[0].symbol})`}
             </Heading>
             <Separator />
             <InfoTabs company={companyData} />

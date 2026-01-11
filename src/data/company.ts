@@ -10,8 +10,13 @@ import {
   getCompanySubsidiariesService,
 } from "@/services/company.service";
 
-export const getCompanies = async () => {
-  return await getCompaniesService();
+export const getCompanies = async (
+  name: string,
+  page: number = 1,
+  page_size: number = 100
+) => {
+  const { data, pagination } = await getCompaniesService(name, page, page_size);
+  return { data, pagination };
 };
 
 export const getCompany = async (ai_code: string) => {

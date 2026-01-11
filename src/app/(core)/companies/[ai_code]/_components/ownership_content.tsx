@@ -1,4 +1,3 @@
-import { getCompanyOwnership } from "@/data/company";
 import { useCompanyOwnership } from "@/hooks/use-companies";
 import { Box, Container, For, Heading, Table, Tabs } from "@chakra-ui/react";
 import { Text } from "recharts";

@@ -8,14 +8,23 @@ import {
   fetchCompanySubsidiaries,
 } from "@/lib/api/company.api";
 
-export async function getCompaniesService(): Promise<ICompany[]> {
-  const response = (await fetchCompaniesApi()).data;
+export async function getCompaniesService(
+  name: string,
+  page: number = 1,
+  page_size: number = 20
+): Promise<{ data: ICompanySearchResult[]; pagination: IPagination | null }> {
+  const response = (await fetchCompaniesApi(name, page, page_size)).data;
 
   if (response.status !== 200 || !response.data) {
     throw new Error(response.message || "Failed to fetch companies");
   }
 
-  return response.data;
+  const results = {
+    data: response.data,
+    pagination: response.pagination ?? null,
+  };
+
+  return results;
 }
 
 export async function getCompanyService(ai_code: string): Promise<ICompany> {

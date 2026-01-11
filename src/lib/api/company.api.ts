@@ -1,7 +1,21 @@
 import api from "../axios";
 
-export const fetchCompaniesApi = () =>
-  api.get<ApiResponse<ICompany[]>>("/companies");
+// export const fetchCompaniesApi = () =>
+//   api.get<ApiResponse<ICompany[]>>("/companies");
+
+export const fetchCompaniesApi = (
+  name: string,
+  page: number = 1,
+  page_size: number = 20
+) =>
+  api.get<ApiResponse<ICompanySearchResult[]>>(
+    "/companies/search?name=" +
+      encodeURIComponent(name) +
+      "&page=" +
+      page +
+      "&page_size=" +
+      page_size
+  );
 
 export const fetchCompanyApi = (ai_code: string) =>
   api.get<ApiResponse<ICompany>>(`/companies/${ai_code}`);
