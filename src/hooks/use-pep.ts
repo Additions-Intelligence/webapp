@@ -1,10 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { searchPep, getPepById } from "@/data/pep";
 
-export const useSearchPep = (name: string, enabled = true) =>
+export const useSearchPep = (
+  name: string,
+  page: number = 1,
+  page_size: number = 20,
+  enabled = true
+) =>
   useQuery({
-    queryKey: ["pep", name],
-    queryFn: () => searchPep(name),
+    queryKey: ["pep", name, page, page_size],
+    queryFn: () => searchPep(name, page, page_size),
     enabled,
     staleTime: 1000 * 60 * 5,
   });

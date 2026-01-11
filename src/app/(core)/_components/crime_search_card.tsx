@@ -41,7 +41,7 @@ const CrimeSearchCard: React.FC<CrimeSearchCardProps> = ({ entity }) => {
                   {entity.identifier.aliases || "NI"}
                 </Text>
               </Flex>
-              <Flex gap={1}>
+              {/* <Flex gap={1}>
                 <Text fontSize="sm" color="gray.500" fontWeight="semibold">
                   Crime:
                 </Text>
@@ -56,7 +56,7 @@ const CrimeSearchCard: React.FC<CrimeSearchCardProps> = ({ entity }) => {
                 <Text fontSize="sm" color="gray.500">
                   {entity.crimes[0].crime_information.sub_crime_type || "NI"}
                 </Text>
-              </Flex>
+              </Flex> */}
             </Flex>
           </Box>
         </Flex>

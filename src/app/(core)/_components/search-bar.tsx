@@ -32,46 +32,34 @@ interface SearchBarProps {
 const PAGE_SIZE = 20;
 
 const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
-  const isCompanySearch = type === "companies";
   const router = useRouter();
+  const isCompanySearch = type === "companies";
 
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
 
   const [kycSearchTerm, setKycSearchTerm] = useState("");
+
   const isActive = debouncedSearchTerm.trim().length > 0;
 
   /* -----------------------------
-     Companies infinite scroll state
+     Pagination state for all types
   ------------------------------ */
   const [page, setPage] = useState(1);
-  const [companyResults, setCompanyResults] = useState<any[]>([]);
+  const [results, setResults] = useState<any[]>([]);
   const [hasMore, setHasMore] = useState(true);
-
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
-  /* Reset pagination when search changes */
+  /* Reset pagination when search term or type changes */
   useEffect(() => {
-    if (type === "companies") {
-      setPage(1);
-      setCompanyResults([]);
-      setHasMore(true);
-    }
+    setPage(1);
+    setResults([]);
+    setHasMore(true);
   }, [debouncedSearchTerm, type]);
 
   /* -----------------------------
      Queries
   ------------------------------ */
-  const crimeQuery = useSearchCrime(
-    debouncedSearchTerm,
-    type === "crime" && isActive
-  );
-
-  const pepQuery = useSearchPep(
-    debouncedSearchTerm,
-    type === "pep" && isActive
-  );
-
   const companiesQuery = useCompanies(
     debouncedSearchTerm,
     page,
@@ -79,45 +67,63 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     type === "companies" && isActive
   );
 
-  /* Append company results */
+  const crimeQuery = useSearchCrime(
+    debouncedSearchTerm,
+    page,
+    PAGE_SIZE,
+    type === "crime" && isActive
+  );
+
+  const pepQuery = useSearchPep(
+    debouncedSearchTerm,
+    page,
+    PAGE_SIZE,
+    type === "pep" && isActive
+  );
+
+  const activeQuery = {
+    companies: companiesQuery,
+    crime: crimeQuery,
+    pep: pepQuery,
+  }[type];
+
+  /* -----------------------------
+     Append results on query update
+  ------------------------------ */
   useEffect(() => {
-    if (!companiesQuery.data) return;
+    if (!activeQuery?.data) return;
 
-    const { data, pagination } = companiesQuery.data;
+    const { data, pagination } = activeQuery.data;
 
-    setCompanyResults((prev) => (page === 1 ? data : [...prev, ...data]));
+    setResults((prev) => (page === 1 ? data : [...prev, ...data]));
 
     setHasMore(!!pagination && pagination.page < pagination.total_pages);
-  }, [companiesQuery.data, page]);
+  }, [activeQuery?.data, page]);
 
   /* -----------------------------
      Infinite scroll observer
   ------------------------------ */
   useEffect(() => {
-    if (type !== "companies") return;
-    if (!loadMoreRef.current) return;
+    if (!loadMoreRef.current || !hasMore || !activeQuery) return;
 
     const scrollRoot = document.querySelector("[data-dialog-body]") || null;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && hasMore && !companiesQuery.isFetching) {
+        if (entry.isIntersecting && hasMore && !activeQuery.isFetching) {
           setPage((p) => p + 1);
         }
       },
-      {
-        root: scrollRoot,
-        rootMargin: "200px",
-      }
+      { root: scrollRoot, rootMargin: "200px" }
     );
 
     observer.observe(loadMoreRef.current);
 
     return () => observer.disconnect();
-  }, [hasMore, companiesQuery.isFetching, type]);
+  }, [hasMore, activeQuery, type]);
 
   /* -----------------------------
-     KYC handler
+     KYC search
   ------------------------------ */
   const handleOnKYCSearch = () => {
     if (!kycSearchTerm.trim()) return;
@@ -186,10 +192,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
             <Dialog.Body data-dialog-body>
               {type !== "kyc" && (
                 <>
-                  {(companiesQuery.isLoading && page === 1) ||
-                  (type !== "companies" &&
-                    (crimeQuery.isLoading || pepQuery.isLoading) &&
-                    !isActive) ? (
+                  {activeQuery?.isLoading && page === 1 ? (
                     <Flex justify="center" gap={2}>
                       <Icon
                         as={LoaderCircle}
@@ -197,14 +200,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                       />
                       <Text>Preparing information...</Text>
                     </Flex>
-                  ) : type === "companies" && companyResults.length === 0 ? (
+                  ) : results.length === 0 ? (
                     <Text textAlign="center" color="fg.muted">
                       No results found.
                     </Text>
                   ) : (
                     <VStack spaceY={2}>
                       {type === "companies" &&
-                        companyResults.map((company: any) => (
+                        results.map((company: any) => (
                           <CompanySearchCard
                             key={company.identifier.ai_code}
                             company={company}
@@ -212,17 +215,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                         ))}
 
                       {type === "crime" &&
-                        crimeQuery.data?.map((person: any, i: number) => (
-                          <CrimeSearchCard key={i} entity={person} />
+                        results.map((person: any, index: number) => (
+                          <CrimeSearchCard key={index} entity={person} />
                         ))}
 
                       {type === "pep" &&
-                        pepQuery.data?.map((person: any, i: number) => (
-                          <PEPSearchCard key={i} entity={person} />
+                        results.map((person: any, index: number) => (
+                          <PEPSearchCard key={index} entity={person} />
                         ))}
 
                       {/* Infinite scroll sentinel */}
-                      {type === "companies" && hasMore && (
+                      {hasMore && (
                         <Flex ref={loadMoreRef} justify="center" py={4}>
                           <Icon
                             as={LoaderCircle}
