@@ -42,24 +42,20 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
 
   const isActive = debouncedSearchTerm.trim().length > 0;
 
-  /* -----------------------------
-     Pagination state for all types
-  ------------------------------ */
+  // Pagination state for all types
   const [page, setPage] = useState(1);
   const [results, setResults] = useState<any[]>([]);
   const [hasMore, setHasMore] = useState(true);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
-  /* Reset pagination when search term or type changes */
+  // Reset pagination when search term or type changes
   useEffect(() => {
     setPage(1);
     setResults([]);
     setHasMore(true);
   }, [debouncedSearchTerm, type]);
 
-  /* -----------------------------
-     Queries
-  ------------------------------ */
+  // Queries
   const companiesQuery = useCompanies(
     debouncedSearchTerm,
     page,
@@ -87,9 +83,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     pep: pepQuery,
   }[type];
 
-  /* -----------------------------
-     Append results on query update
-  ------------------------------ */
+  // Append results on query update
   useEffect(() => {
     if (!activeQuery?.data) return;
 
@@ -100,9 +94,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     setHasMore(!!pagination && pagination.page < pagination.total_pages);
   }, [activeQuery?.data, page]);
 
-  /* -----------------------------
-     Infinite scroll observer
-  ------------------------------ */
+  // Infinite scroll observer
   useEffect(() => {
     if (!loadMoreRef.current || !hasMore || !activeQuery) return;
 
@@ -122,17 +114,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     return () => observer.disconnect();
   }, [hasMore, activeQuery, type]);
 
-  /* -----------------------------
-     KYC search
-  ------------------------------ */
+  // KYC search
   const handleOnKYCSearch = () => {
     if (!kycSearchTerm.trim()) return;
     router.push(`/kyc?search=${kycSearchTerm}`);
   };
 
-  /* -----------------------------
-     Render
-  ------------------------------ */
+  // Render
   return (
     <Dialog.Root placement="center" size="lg" scrollBehavior="inside">
       <Dialog.Trigger asChild>
