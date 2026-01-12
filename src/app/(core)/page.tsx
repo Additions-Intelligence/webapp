@@ -3,7 +3,7 @@
 import { Flex, Heading } from "@chakra-ui/react";
 import ProductList from "./_components/product-list";
 import SearchBar from "./_components/search-bar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 export default function Home() {
