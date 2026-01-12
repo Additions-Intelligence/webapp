@@ -3,10 +3,16 @@
 import { Flex, Heading } from "@chakra-ui/react";
 import ProductList from "./_components/product-list";
 import SearchBar from "./_components/search-bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
-  const [product, setProduct] = useState("companies");
+  const searchParams = useSearchParams();
+
+  const [product, setProduct] = useState(
+    searchParams.get("product") || "companies"
+  );
+
   return (
     <Flex
       as="main"
@@ -21,7 +27,10 @@ export default function Home() {
         Addition Intelligence Platform
       </Heading>
       <SearchBar type={product} />
-      <ProductList onProductSelect={(selected) => setProduct(selected ?? "")} />
+      <ProductList
+        onProductSelect={(selected) => setProduct(selected ?? "")}
+        selectedProduct={product}
+      />
     </Flex>
   );
 }

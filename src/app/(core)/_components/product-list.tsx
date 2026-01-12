@@ -29,12 +29,16 @@ const products = [
 
 interface ProductListProps {
   onProductSelect: (product: string | null) => void;
+  selectedProduct: string | null;
 }
 
-const ProductList: React.FC<ProductListProps> = ({ onProductSelect }) => {
+const ProductList: React.FC<ProductListProps> = ({
+  onProductSelect,
+  selectedProduct,
+}) => {
   return (
     <RadioCard.Root
-      defaultValue="companies"
+      value={selectedProduct}
       onValueChange={(result) => {
         onProductSelect(result.value);
       }}
