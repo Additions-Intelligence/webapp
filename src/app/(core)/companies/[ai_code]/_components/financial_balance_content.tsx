@@ -132,9 +132,7 @@ const FinancialBalanceContent: React.FC<FinancialBalanceContentProps> = ({
                         </Table.Cell>
                         <For each={sortedYears}>
                           {(year) => (
-                            <Table.Cell>
-                              {formatCurrency(item.values[year] || "NI")}
-                            </Table.Cell>
+                            <Table.Cell>{item.values[year] || "NI"}</Table.Cell>
                           )}
                         </For>
                       </Table.Row>

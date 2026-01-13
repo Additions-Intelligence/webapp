@@ -159,9 +159,6 @@ export default async function PEPDetail({
                 )}
               </For>
             </SimpleGrid>
-            <Heading size="2xl" my={8}>
-              Controversies
-            </Heading>
             <Box gap={4}>
               <For
                 each={pepData.controversies}

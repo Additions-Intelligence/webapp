@@ -90,7 +90,7 @@ const FinancialIncomeContent: React.FC<FinancialIncomeContentProps> = ({
                   <For each={sortedYears}>
                     {(year) => (
                       <Table.Cell key={year}>
-                        {formatCurrency(statementsByYear[year]?.[item] || "NI")}
+                        {statementsByYear[year]?.[item] || "NI"}
                       </Table.Cell>
                     )}
                   </For>
