@@ -51,7 +51,7 @@ const OwnershipContent: React.FC<OwnershipContentProps> = ({ aiCode }) => {
                   </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                  <For each={record.beneficial_owners}>
+                  <For each={[...record.beneficial_owners].sort((a, b) => (b.percentage || 0) - (a.percentage || 0))}>
                     {(owner, index) => (
                       <Table.Row key={index}>
                         <Table.Cell>{owner.name}</Table.Cell>
