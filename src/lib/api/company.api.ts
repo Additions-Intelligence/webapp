@@ -10,11 +10,11 @@ export const fetchCompaniesApi = (
 ) =>
   api.get<ApiResponse<ICompanySearchResult[]>>(
     "/companies/search?name=" +
-      encodeURIComponent(name) +
-      "&page=" +
-      page +
-      "&page_size=" +
-      page_size
+    encodeURIComponent(name) +
+    "&page=" +
+    page +
+    "&page_size=" +
+    page_size
   );
 
 export const fetchCompanyApi = (ai_code: string) =>
@@ -41,4 +41,9 @@ export const fetchCompanyQuantitativeDisclosures = (ai_code: string) =>
 export const fetchCompanySubsidiaries = (ai_code: string) =>
   api.get<ApiResponse<ISubsidiaryResponse[]>>(
     `/companies/${ai_code}/subsidiaries`
+  );
+
+export const fetchCompanySustainableDevelopment = (ai_code: string) =>
+  api.get<ApiResponse<ISustainableDevelopment[]>>(
+    `/companies/${ai_code}/sustainability`
   );

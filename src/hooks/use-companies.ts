@@ -7,6 +7,7 @@ import {
   getCompanyFinancialRatios,
   getCompanyQuantitativeDisclosures,
   getCompanySubsidiaries,
+  getCompanySustainableDevelopment,
 } from "@/data/company";
 
 export const useCompanies = (
@@ -72,3 +73,15 @@ export const useCompanySubsidiaries = (ai_code: string, enabled = true) =>
     enabled,
     staleTime: 1000 * 60 * 5,
   });
+
+export const useCompanySustainableDevelopment = (
+  ai_code: string,
+  enabled = true
+) =>
+  useQuery({
+    queryKey: ["company-sustainable-development", ai_code],
+    queryFn: () => getCompanySustainableDevelopment(ai_code),
+    enabled,
+    staleTime: 1000 * 60 * 5,
+  });
+

@@ -76,7 +76,7 @@ interface IAuditor {
   name: string | null;
 }
 
-interface ISolicitor extends IAuditor {}
+interface ISolicitor extends IAuditor { }
 
 interface ICompany {
   identifier: ICompanyIdentifier;
@@ -329,4 +329,39 @@ interface AggregatedRisk {
   financial_risks: FinancialRisk[];
   crime_risks: CrimeRisk[];
   pep_screenings: IPEPRecord[];
+}
+
+// Sustainable Development / ESG related types
+interface IProductService {
+  product_name: string;
+  description: string;
+}
+
+interface ITheme {
+  theme: string;
+  es_quantification: string;
+  product_services: IProductService[];
+}
+
+interface IScale {
+  measure_used: string;
+  company_reasonable_est: string;
+  analyst_reasonable_est: string;
+  total_scale: string;
+  general_scale: string;
+  score: string;
+  research_note: string;
+}
+
+interface IResearchYear {
+  year: number;
+  themes: ITheme[];
+  scale: IScale;
+}
+
+interface ISustainableDevelopment {
+  identifier: ICompanyIdentifier;
+  research_years: IResearchYear[];
+  created_at: string | null;
+  updated_at: string | null;
 }

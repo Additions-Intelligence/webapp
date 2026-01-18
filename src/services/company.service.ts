@@ -6,6 +6,7 @@ import {
   fetchCompanyFinancialRatios,
   fetchCompanyQuantitativeDisclosures,
   fetchCompanySubsidiaries,
+  fetchCompanySustainableDevelopment,
 } from "@/lib/api/company.api";
 
 export async function getCompaniesService(
@@ -100,3 +101,18 @@ export async function getCompanySubsidiariesService(
 
   return response.data;
 }
+
+export async function getCompanySustainableDevelopmentService(
+  ai_code: string
+): Promise<ISustainableDevelopment[]> {
+  const response = (await fetchCompanySustainableDevelopment(ai_code)).data;
+
+  if (response.status !== 200 || !response.data) {
+    throw new Error(
+      response.message || "Failed to fetch company sustainable development"
+    );
+  }
+
+  return response.data;
+}
+

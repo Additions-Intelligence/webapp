@@ -8,6 +8,7 @@ import {
   getCompanyFinancialRatiosService,
   getCompanyQuantitativeDisclosuresService,
   getCompanySubsidiariesService,
+  getCompanySustainableDevelopmentService,
 } from "@/services/company.service";
 
 export const getCompanies = async (
@@ -42,3 +43,8 @@ export const getCompanyQuantitativeDisclosures = async (ai_code: string) => {
 export const getCompanySubsidiaries = async (ai_code: string) => {
   return await getCompanySubsidiariesService(ai_code);
 };
+
+export const getCompanySustainableDevelopment = async (ai_code: string) => {
+  return await getCompanySustainableDevelopmentService(ai_code);
+};
+
