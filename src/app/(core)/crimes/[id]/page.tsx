@@ -136,6 +136,10 @@ export default async function CrimeDetailPage({
                         value={crime.crime_information.description}
                       />
                       <InfoItem
+                        label="Money Involved"
+                        value={crime.crime_information.money_involved}
+                      />
+                      <InfoItem
                         label="Sanctioned Authority"
                         value={crime.crime_information.sanctioned_authority}
                       />
